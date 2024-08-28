@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+	--main-font: 'Oswald', sans-serif;
+}
+
+body {
+	height: auto;
+	background-color: #dedede;
+	color: #333;
+}
+
+body {
+	font-family: var(--main-font);
+	font-size: 1.2rem;
+}
+
+main {
+	width: 85%;
+	margin: 3rem auto 3rem auto;
+}
+
+pre {
+	font-family: 'Caveat', cursive;
+	font-size: 1.2rem;
+}
+
+a {
+	color: #333;
+	text-underline-offset: 0.2rem;
+}
+a:hover {
+	opacity: 0.8;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 3rem;
+	text-align: center;
+}
+
+h2 {
+	font-size: 2.4rem;
+	text-align: center;
+}
+
+h3 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+img {
+	width: 100%;
+}
+
+ol,
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+small {
+	font-size: 1rem;
+	color: #5f5f5f;
+}
+
+.box-shadow {
+	box-shadow: 0 0 10px rgba(96, 96, 96, 0.4);
+}
+
+@media (min-width: 768px) {
+	main {
+		width: 100%;
+	}
+	pre {
+		font-size: 1.8rem;
+	}
+}
