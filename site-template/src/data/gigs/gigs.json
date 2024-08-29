@@ -1,0 +1,12 @@
+[
+	{
+		"venue": "The Jazz Hole",
+		"dateTimeStart": "2025/06/21 20:00:00",
+		"address": "Downtown Springfield",
+		"ticketLink": "https://www.jazzhole.com"
+	},
+	{
+		"venue": "Moe's Tavern",
+		"dateTimeStart": "2024/06/21 10:00:00"
+	}
+]
