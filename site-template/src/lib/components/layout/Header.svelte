@@ -30,10 +30,10 @@
 		</div>
 		<nav>
 			<HeaderLink href="/music" title="Music" />
+			<HeaderLink href="/lyrics" title="Lyrics" />
 			{#if gigs.length > 0}
 				<HeaderLink href="/live" title="Live" />
 			{/if}
-			<HeaderLink href="/contact" title="Contact" />
 			{#if artistDetails.storeUrl}
 				<HeaderLink href={artistDetails.storeUrl} title="Shop" targetBlank />
 			{/if}

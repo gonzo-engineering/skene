@@ -61,7 +61,7 @@
 	{/if}
 
 	{#if data.track.lyrics}
-		<h3>Lyrics</h3>
+		<h3 id="lyrics">Lyrics</h3>
 		<LyricsSheet lyrics={data.track.lyrics} />
 	{/if}
 
