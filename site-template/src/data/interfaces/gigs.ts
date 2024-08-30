@@ -1,18 +1,6 @@
-export interface Gig {
-	venue: {
-		name: string;
-		address: string;
-		link: string;
-		coordinates: {
-			latitude: number;
-			longitude: number;
-		};
-	};
-	description: string;
-	date: string;
-	time: {
-		start: string;
-		end: string;
-	};
-	ticketLink: string;
+export interface GigDetails {
+	venue: string;
+	address: string;
+	dateTimeStart: string;
+	ticketLink?: string;
 }

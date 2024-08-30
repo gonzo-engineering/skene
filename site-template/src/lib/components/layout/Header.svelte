@@ -1,6 +1,5 @@
 <script>
 	import HeaderLink from './HeaderLink.svelte';
-	import { gigs } from '../../../data/gigs/gigs';
 	import { artistDetails } from '../../../data/info/artist';
 
 	$: isStuck = false;
@@ -9,18 +8,18 @@
 		isStuck = window.scrollY > 0;
 	};
 
-	const hasUpcomingGigs =
-		gigs.filter((gig) => new Date(gig.dateTimeStart) >= new Date()).length > 0;
+	// const hasUpcomingGigs =
+	// 	gigs.filter((gig) => new Date(gig.dateTimeStart) >= new Date()).length > 0;
 </script>
 
 <svelte:window on:scroll={handleScroll} />
 
 <div class="sticky-container" class:box-shadow={isStuck}>
-	{#if hasUpcomingGigs}
+	<!-- {#if hasUpcomingGigs}
 		<div class="live-promo card-background">
 			<a href="/live">All upcoming lives dates</a>
 		</div>
-	{/if}
+	{/if} -->
 	<header>
 		<div class="home-link">
 			<HeaderLink href="/" title="Home" />
@@ -31,9 +30,7 @@
 		<nav>
 			<HeaderLink href="/music" title="Music" />
 			<HeaderLink href="/lyrics" title="Lyrics" />
-			{#if gigs.length > 0}
-				<HeaderLink href="/live" title="Live" />
-			{/if}
+			<HeaderLink href="/live" title="Live" />
 			{#if artistDetails.storeUrl}
 				<HeaderLink href={artistDetails.storeUrl} title="Shop" targetBlank />
 			{/if}

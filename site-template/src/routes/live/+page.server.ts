@@ -1,11 +1,8 @@
-import { gigs } from '../../data/gigs/gigs';
+import { supabase } from '$lib/supabaseClient';
 
-const sortedGigs = gigs.sort((a, b) => {
-	return b.dateTimeStart.getMilliseconds() - a.dateTimeStart.getMilliseconds();
-});
-
-export function load() {
+export async function load() {
+	const { data } = await supabase.from('gigs').select();
 	return {
-		gigs: sortedGigs
+		gigs: data ?? []
 	};
 }
