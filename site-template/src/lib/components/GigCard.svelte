@@ -9,7 +9,6 @@
 	export let isPast: boolean = false;
 
 	const prettifyStartTime = (dateTime: Date) => {
-		// Return string in format 8:00pm - 10:00pm
 		return dateTime.toLocaleTimeString('en-US', {
 			hour: 'numeric',
 			minute: '2-digit',

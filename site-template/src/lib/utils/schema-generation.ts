@@ -1,4 +1,4 @@
-import type { GigDetails } from '../../data/gigs/gigs';
+import type { GigDetails } from '../../data/interfaces/gigs';
 import type { Release } from '../../data/interfaces/releases';
 import { artistDetails } from '../../data/info/artist';
 
