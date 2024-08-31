@@ -32,6 +32,11 @@
 			</a>
 		</li>
 	</ul>
+	<div>
+		<small>
+			Powered by <a href="https://gonzo.engineering">Gonzo Engineering</a>
+		</small>
+	</div>
 </footer>
 
 <style>
@@ -52,14 +57,11 @@
 		justify-content: center;
 		padding: 0;
 		gap: 1rem;
+		margin-bottom: 2rem;
 	}
 
 	li {
 		list-style: none;
-	}
-
-	a {
-		text-decoration: none;
 		padding: 0 0.5rem;
 	}
 </style>
