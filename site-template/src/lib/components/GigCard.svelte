@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { generateGigSchema } from '$lib/utils/schema-generation';
 	import { formatDate } from '$lib/utils/utils';
-	import type { GigDetails } from '../../data/interfaces/gigs';
 	import Icon from './Icon.svelte';
 	import { icons } from '../utils/icon-paths';
+	import type { GigDetails } from '$lib/interfaces/gigs';
 
 	export let gig: GigDetails;
 	export let isPast: boolean = false;

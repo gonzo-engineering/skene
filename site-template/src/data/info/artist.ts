@@ -1,4 +1,4 @@
-import type { Artist } from '../interfaces/artist';
+import type { Artist } from '$lib/interfaces/artist';
 
 export const artistDetails: Artist = {
 	name: 'Bleeding Gums Murphy',

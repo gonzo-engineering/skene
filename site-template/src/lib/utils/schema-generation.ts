@@ -1,5 +1,5 @@
-import type { GigDetails } from '../../data/interfaces/gigs';
-import type { Release } from '../../data/interfaces/releases';
+import type { GigDetails } from '$lib/interfaces/gigs';
+import type { Release } from '$lib/interfaces/releases';
 import { artistDetails } from '../../data/info/artist';
 
 export const generateReleaseSchema = (release: Release) => {

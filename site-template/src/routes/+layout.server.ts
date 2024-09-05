@@ -1,4 +1,4 @@
-import type { GigDetails } from '../data/interfaces/gigs.js';
+import type { GigDetails } from '$lib/interfaces/gigs';
 
 export async function load({ fetch }) {
 	const gigs: GigDetails[] = await fetch('/api/live').then((r) => r.json());

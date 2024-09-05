@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { GigDetails } from '../../data/interfaces/gigs';
+	import type { GigDetails } from '$lib/interfaces/gigs';
 
 	export let gigs: GigDetails[];
 	export let handleDeleteFunction: (id: number) => Promise<void>;

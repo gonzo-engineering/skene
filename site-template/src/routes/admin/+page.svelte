@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { GigDetails } from '../../data/interfaces/gigs';
 	import { supabase } from '../../supabaseClient';
 	import { createEventDispatcher } from 'svelte';
 	import GigsTable from '$lib/components/GigsTable.svelte';
 	import { invalidateAll } from '$app/navigation';
 	import { artistDetails } from '../../data/info/artist';
+	import type { GigDetails } from '$lib/interfaces/gigs';
 
 	export let data: { gigs: GigDetails[] };
 

@@ -2,8 +2,8 @@
 	import ArtworkImage from '$lib/components/ArtworkImage.svelte';
 	import LyricsSheet from '$lib/components/LyricsSheet.svelte';
 	import YouTubeEmbed from '$lib/components/YouTubeEmbed.svelte';
+	import type { Release, Track } from '$lib/interfaces/releases';
 	import { formatDate, makeArtworkCredit } from '$lib/utils/utils';
-	import type { Release, Track } from '../../../../data/interfaces/releases';
 	import { artistDetails } from '../../../../data/info/artist';
 
 	export let data: {
