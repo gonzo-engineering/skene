@@ -1,20 +1,12 @@
 <script lang="ts">
 	import { generateGigSchema } from '$lib/utils/schema-generation';
-	import { formatDate } from '$lib/utils/utils';
+	import { formatDate, prettifyStartTime } from '$lib/utils/utils';
 	import Icon from './Icon.svelte';
 	import { icons } from '../utils/icon-paths';
 	import type { GigDetails } from '$lib/interfaces/gigs';
 
 	export let gig: GigDetails;
 	export let isPast: boolean = false;
-
-	const prettifyStartTime = (dateTime: Date) => {
-		return dateTime.toLocaleTimeString('en-US', {
-			hour: 'numeric',
-			minute: '2-digit',
-			hour12: true
-		});
-	};
 </script>
 
 <div class={`container card-background box-shadow ${isPast ? 'past-gig' : ''}`}>

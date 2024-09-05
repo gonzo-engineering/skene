@@ -1,5 +1,13 @@
 import type { CollaboratorDetails } from '../../data/info/collaborators';
 
+export const prettifyStartTime = (dateTime: Date) => {
+	return dateTime.toLocaleTimeString('en-US', {
+		hour: 'numeric',
+		minute: '2-digit',
+		hour12: true
+	});
+};
+
 export const formatDate = (date: Date): string => {
 	const getDaySuffix = (day: number): string => {
 		if (day >= 11 && day <= 13) {

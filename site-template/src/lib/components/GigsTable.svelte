@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { GigDetails } from '$lib/interfaces/gigs';
+	import { formatDate, prettifyStartTime } from '$lib/utils/utils';
 
 	export let gigs: GigDetails[];
 	export let handleDeleteFunction: (id: number) => Promise<void>;
@@ -20,8 +21,10 @@
 			<tr>
 				<td>{gig.venue}</td>
 				<td>{gig.address}</td>
-				<td>{new Date(gig.dateTimeStart).toLocaleString()}</td>
-				<td>{gig.ticketLink ? gig.ticketLink : ''}</td>
+				<td
+					>{formatDate(new Date(gig.dateTimeStart))}
+					- {prettifyStartTime(new Date(gig.dateTimeStart))}
+				</td><td>{gig.ticketLink ? gig.ticketLink : ''}</td>
 				<td><button on:click={() => handleDeleteFunction(gig.id)}>Delete</button></td>
 			</tr>
 		{/each}
