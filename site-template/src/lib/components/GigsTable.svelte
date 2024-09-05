@@ -24,7 +24,13 @@
 				<td
 					>{formatDate(new Date(gig.dateTimeStart))}
 					- {prettifyStartTime(new Date(gig.dateTimeStart))}
-				</td><td>{gig.ticketLink ? gig.ticketLink : ''}</td>
+				</td><td
+					>{#if gig.ticketLink}
+						<a href={gig.ticketLink} target="_blank">{gig.ticketLink}</a>
+					{:else}
+						-
+					{/if}
+				</td>
 				<td><button on:click={() => handleDeleteFunction(gig.id)}>Delete</button></td>
 			</tr>
 		{/each}
