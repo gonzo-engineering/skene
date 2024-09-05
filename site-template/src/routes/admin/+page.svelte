@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { supabase } from '../../supabaseClient';
-	import { createEventDispatcher } from 'svelte';
 	import GigsTable from '$lib/components/GigsTable.svelte';
 	import { invalidateAll } from '$app/navigation';
 	import { artistDetails } from '../../data/info/artist';
@@ -8,17 +7,17 @@
 
 	export let data: { gigs: GigDetails[] };
 
-	const pastShows = data.gigs.filter((gig) => new Date(gig.dateTimeStart) < new Date());
-	const upcomingShows = data.gigs.filter((gig) => new Date(gig.dateTimeStart) >= new Date());
+	$: pastShows = data.gigs.filter((gig) => new Date(gig.dateTimeStart) < new Date());
+	$: upcomingShows = data.gigs.filter((gig) => new Date(gig.dateTimeStart) >= new Date());
 
-	const dispatch = createEventDispatcher();
-
-	$: gig = {
+	const emptyGigDetails = {
 		venue: '',
 		address: '',
 		dateTimeStart: '',
-		ticketLink: undefined
+		ticketLink: ''
 	};
+
+	$: newGig = emptyGigDetails;
 
 	const handleSubmit = async (gig: {
 		venue: string;
@@ -26,19 +25,14 @@
 		dateTimeStart: string;
 		ticketLink: string | undefined;
 	}) => {
-		const { data, error } = await supabase.from('gigs').insert([gig]);
+		const { error } = await supabase.from('gigs').insert([gig]);
 
-		gig = {
-			venue: '',
-			address: '',
-			dateTimeStart: '',
-			ticketLink: undefined
-		};
+		newGig = emptyGigDetails;
 
 		if (error) {
 			console.error('Error adding gig:', error.message);
 		} else {
-			if (data) dispatch('gigAdded', data[0]);
+			invalidateAll();
 		}
 	};
 
@@ -48,7 +42,6 @@
 		if (error) {
 			console.error('Error deleting gig:', error.message);
 		} else {
-			dispatch('gigDeleted', id);
 			invalidateAll();
 		}
 	};
@@ -63,12 +56,12 @@
 	<div class="add-gig-section">
 		<h2>Add a gig</h2>
 		<form>
-			<input type="text" placeholder="Venue" bind:value={gig.venue} />
-			<input type="text" placeholder="Address" bind:value={gig.address} />
-			<input type="datetime-local" bind:value={gig.dateTimeStart} />
-			<input type="url" placeholder="Ticket link (Optional)" bind:value={gig.ticketLink} />
+			<input type="text" placeholder="Venue" bind:value={newGig.venue} />
+			<input type="text" placeholder="Address" bind:value={newGig.address} />
+			<input type="datetime-local" bind:value={newGig.dateTimeStart} />
+			<input type="url" placeholder="Ticket link (Optional)" bind:value={newGig.ticketLink} />
 
-			<button on:click={() => handleSubmit(gig)}>Add gig</button>
+			<button on:click={() => handleSubmit(newGig)}>Add gig</button>
 		</form>
 	</div>
 
