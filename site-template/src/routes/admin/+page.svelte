@@ -10,14 +10,12 @@
 	$: pastShows = data.gigs.filter((gig) => new Date(gig.dateTimeStart) < new Date());
 	$: upcomingShows = data.gigs.filter((gig) => new Date(gig.dateTimeStart) >= new Date());
 
-	const emptyGigDetails = {
+	$: newGig = {
 		venue: '',
 		address: '',
 		dateTimeStart: '',
 		ticketLink: ''
 	};
-
-	$: newGig = emptyGigDetails;
 
 	const handleSubmit = async (gig: {
 		venue: string;
@@ -27,7 +25,12 @@
 	}) => {
 		const { error } = await supabase.from('gigs').insert([gig]);
 
-		newGig = emptyGigDetails;
+		newGig = {
+			venue: '',
+			address: '',
+			dateTimeStart: '',
+			ticketLink: ''
+		};
 
 		if (error) {
 			console.error('Error adding gig:', error.message);
@@ -64,24 +67,25 @@
 			<button on:click={() => handleSubmit(newGig)}>Add gig</button>
 		</form>
 	</div>
+	<div class="gigs-list-section">
+		{#if upcomingShows.length > 0}
+			<h2>Upcoming shows</h2>
+			<div class="gigs-list">
+				<GigsTable gigs={upcomingShows} handleDeleteFunction={handleDelete} />
+			</div>
+		{:else}
+			<p class="no-gigs-message">No upcoming shows.</p>
+		{/if}
 
-	{#if upcomingShows.length > 0}
-		<h2>Upcoming shows</h2>
-		<div class="gigs-list">
-			<GigsTable gigs={upcomingShows} handleDeleteFunction={handleDelete} />
-		</div>
-	{:else}
-		<p class="no-gigs-message">No upcoming shows.</p>
-	{/if}
-
-	{#if pastShows.length > 0}
-		<h2>Past shows</h2>
-		<div class="gigs-list">
-			<GigsTable gigs={pastShows} handleDeleteFunction={handleDelete} />
-		</div>
-	{:else}
-		<p class="no-gigs-message">No previous shows.</p>
-	{/if}
+		{#if pastShows.length > 0}
+			<h2>Past shows</h2>
+			<div class="gigs-list">
+				<GigsTable gigs={pastShows} handleDeleteFunction={handleDelete} />
+			</div>
+		{:else}
+			<p class="no-gigs-message">No previous shows.</p>
+		{/if}
+	</div>
 </div>
 
 <style>
