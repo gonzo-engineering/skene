@@ -1,25 +1,24 @@
-<script>
+<script lang="ts">
 	import HeaderLink from './HeaderLink.svelte';
 	import { artistDetails } from '../../../data/info/artist';
+
+	export let hasUpcomingGigs: boolean;
 
 	$: isStuck = false;
 
 	const handleScroll = () => {
 		isStuck = window.scrollY > 0;
 	};
-
-	// const hasUpcomingGigs =
-	// 	gigs.filter((gig) => new Date(gig.dateTimeStart) >= new Date()).length > 0;
 </script>
 
 <svelte:window on:scroll={handleScroll} />
 
 <div class="sticky-container" class:box-shadow={isStuck}>
-	<!-- {#if hasUpcomingGigs}
+	{#if hasUpcomingGigs}
 		<div class="live-promo card-background">
 			<a href="/live">All upcoming lives dates</a>
 		</div>
-	{/if} -->
+	{/if}
 	<header>
 		<div class="home-link">
 			<HeaderLink href="/" title="Home" />

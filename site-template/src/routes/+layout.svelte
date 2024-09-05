@@ -4,6 +4,8 @@
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import { artistDetails } from '../data/info/artist';
+
+	export let data;
 </script>
 
 <svelte:head>
@@ -16,7 +18,7 @@
 	{/if}
 </svelte:head>
 
-<Header />
+<Header hasUpcomingGigs={data.hasUpcomingGigs} />
 
 <main>
 	<slot />
