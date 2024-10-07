@@ -1,16 +1,14 @@
-<script>
+<script lang="ts">
 	import HeaderLink from './HeaderLink.svelte';
-	import { gigs } from '../../../data/gigs/gigs';
 	import { artistDetails } from '../../../data/info/artist';
+
+	export let hasUpcomingGigs: boolean;
 
 	$: isStuck = false;
 
 	const handleScroll = () => {
 		isStuck = window.scrollY > 0;
 	};
-
-	const hasUpcomingGigs =
-		gigs.filter((gig) => new Date(gig.dateTimeStart) >= new Date()).length > 0;
 </script>
 
 <svelte:window on:scroll={handleScroll} />
@@ -31,9 +29,7 @@
 		<nav>
 			<HeaderLink href="/music" title="Music" />
 			<HeaderLink href="/lyrics" title="Lyrics" />
-			{#if gigs.length > 0}
-				<HeaderLink href="/live" title="Live" />
-			{/if}
+			<HeaderLink href="/live" title="Live" />
 			{#if artistDetails.storeUrl}
 				<HeaderLink href={artistDetails.storeUrl} title="Shop" targetBlank />
 			{/if}

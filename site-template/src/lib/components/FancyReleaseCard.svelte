@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Release } from '../../data/interfaces/releases';
+	import type { Release } from '$lib/interfaces/releases';
 	import ArtworkImage from './ArtworkImage.svelte';
 
 	export let release: Release;

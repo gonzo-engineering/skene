@@ -1,6 +1,6 @@
-import type { Release } from '../interfaces/releases';
 import { lyrics } from './lyrics';
 import { collaborators } from './collaborators';
+import type { Release } from '$lib/interfaces/releases';
 
 export const releases: Release[] = [
 	{

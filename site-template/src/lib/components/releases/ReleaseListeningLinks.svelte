@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { ListeningLink } from '../../../data/interfaces/releases';
 	import Icon from '$lib/components/Icon.svelte';
+	import type { ListeningLink } from '$lib/interfaces/releases';
 	import { icons } from '$lib/utils/icon-paths';
 
 	export let listeningLinks: ListeningLink[];

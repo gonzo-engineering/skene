@@ -1,12 +1,12 @@
 <script lang="ts">
 	import GigCard from '$lib/components/GigCard.svelte';
-	import type { GigDetails } from '../../data/gigs/gigs';
+	import type { GigDetails } from '$lib/interfaces/gigs';
 	import { artistDetails } from '../../data/info/artist';
 
 	export let data: { gigs: GigDetails[] };
 
-	const upcomingGigs = data.gigs.filter((gig) => gig.dateTimeStart >= new Date());
-	const pastGigs = data.gigs.filter((gig) => gig.dateTimeStart < new Date());
+	const upcomingGigs = data.gigs.filter((gig) => new Date(gig.dateTimeStart) >= new Date());
+	const pastGigs = data.gigs.filter((gig) => new Date(gig.dateTimeStart) < new Date());
 </script>
 
 <svelte:head>

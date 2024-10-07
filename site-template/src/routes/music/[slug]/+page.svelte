@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { Release } from '../../../data/interfaces/releases';
 	import { artistDetails } from '../../../data/info/artist';
 	import {
 		formatDate,
@@ -15,6 +14,7 @@
 	import ReleaseVideos from '$lib/components/releases/ReleaseVideos.svelte';
 	import ArtworkFlipping from '$lib/components/ArtworkImage.svelte';
 	import Button from '$lib/components/Button.svelte';
+	import type { Release } from '$lib/interfaces/releases';
 
 	export let data: {
 		release: Release;

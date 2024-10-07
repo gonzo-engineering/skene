@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { artistDetails } from '../../data/info/artist.js';
 	import { slugifyName } from '$lib/utils/utils.js';
-	import type { Release } from '../../data/interfaces/releases.js';
+	import type { Release } from '$lib/interfaces/releases.js';
 
 	export let data: {
 		releases: Release[];

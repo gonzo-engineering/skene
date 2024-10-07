@@ -1,11 +1,6 @@
-import { gigs } from '../../data/gigs/gigs';
-
-const sortedGigs = gigs.sort((a, b) => {
-	return b.dateTimeStart.getMilliseconds() - a.dateTimeStart.getMilliseconds();
-});
-
-export function load() {
+export async function load({ fetch }) {
+	const data = await fetch('/api/live').then((r) => r.json());
 	return {
-		gigs: sortedGigs
+		gigs: data ?? []
 	};
 }
