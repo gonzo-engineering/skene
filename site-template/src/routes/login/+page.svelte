@@ -1,6 +1,7 @@
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { artistDetails } from '../../data/info/artist.js';
 	import type { ActionData, SubmitFunction } from './$types.js';
 
 	export let form: ActionData;
@@ -17,7 +18,8 @@
 </script>
 
 <svelte:head>
-	<title>User Management</title>
+	<title>Login · {artistDetails.name}</title>
+	<meta name="robots" content="noindex" />
 </svelte:head>
 
 <form class="row flex flex-center" method="POST" use:enhance={handleSubmit}>

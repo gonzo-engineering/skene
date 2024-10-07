@@ -2,7 +2,7 @@
 	import type { PageData } from './$types';
 	import { invalidateAll } from '$app/navigation';
 	import { artistDetails } from '../../data/info/artist';
-	import GigsTable from '$lib/components/GigsTable.svelte';
+	import GigsTable from '$lib/components/admin/GigsTable.svelte';
 
 	export let data: PageData;
 

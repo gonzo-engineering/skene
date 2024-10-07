@@ -9,7 +9,9 @@
 			loading = true;
 			const { error } = await supabase.auth.signInWithOtp({ email });
 			if (error) throw error;
-			alert('Check your email for login link!');
+			alert(
+				"Check your email for login link! If you're a recognised admin you'll recieve a link momentarily."
+			);
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);
@@ -22,7 +24,7 @@
 
 <div class="row flex-center flex">
 	<div class="col-6 form-widget" aria-live="polite">
-		<h1 class="header">Supabase + Svelte</h1>
+		<h1 class="header">Admin dashboard login</h1>
 		<p class="description">Sign in via magic link with your email below</p>
 		<form class="form-widget" on:submit|preventDefault={handleLogin}>
 			<div>
