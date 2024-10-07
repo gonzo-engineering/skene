@@ -1,14 +1,15 @@
 <script lang="ts">
-	import { supabase } from '../../supabaseClient';
-	import GigsTable from '$lib/components/GigsTable.svelte';
+	import type { PageData } from './$types';
 	import { invalidateAll } from '$app/navigation';
 	import { artistDetails } from '../../data/info/artist';
-	import type { GigDetails } from '$lib/interfaces/gigs';
+	import GigsTable from '$lib/components/GigsTable.svelte';
 
-	export let data: { gigs: GigDetails[] };
+	export let data: PageData;
 
-	$: pastShows = data.gigs.filter((gig) => new Date(gig.dateTimeStart) < new Date());
-	$: upcomingShows = data.gigs.filter((gig) => new Date(gig.dateTimeStart) >= new Date());
+	$: ({ supabase, user, gigs } = data);
+
+	$: pastShows = gigs.filter((gig) => new Date(gig.dateTimeStart) < new Date());
+	$: upcomingShows = gigs.filter((gig) => new Date(gig.dateTimeStart) >= new Date());
 
 	$: newGig = {
 		venue: '',
@@ -56,7 +57,6 @@
 </svelte:head>
 
 <div class="admin-container">
-	<h2>Site admin</h2>
 	<div class="gigs-section">
 		<div class="add-gig-section">
 			<h3>Add a gig</h3>

@@ -12,7 +12,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@supabase/supabase-js": "^2.45.3",
+		"@supabase/supabase-js": "^2.45.4",
 		"@sveltejs/adapter-netlify": "^4.3.3",
 		"@sveltejs/kit": "^2.5.25",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
@@ -29,5 +29,9 @@
 		"typescript": "^5.5.4",
 		"vite": "^5.4.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@supabase/auth-helpers-sveltekit": "^0.13.0",
+		"@supabase/ssr": "^0.5.1"
+	}
 }
