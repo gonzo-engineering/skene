@@ -12,7 +12,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@supabase/supabase-js": "^2.45.4",
+		"@supabase/supabase-js": "^2.45.6",
 		"@sveltejs/adapter-netlify": "^4.3.4",
 		"@sveltejs/kit": "^2.6.3",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
