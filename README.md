@@ -1,18 +1,18 @@
-# Scena
+# Skene
 
-Part of the [Gonzo Engineering](https://gonzo.engineering) project, Scena is a collection of tools and templates intended to empower musicians to create unique, independent online presences.
+Part of the [Gonzo Engineering](https://gonzo.engineering) project, Skene is a collection of tools and templates intended to empower musicians to create unique, independent online presences.
 
 Currently powering:
 
 - [thomasashby.co.uk](https://thomasashby.co.uk)
 
-‘Scena’ is latin for stage and sounds nice so that felt like a good fit here. 
+More to come, hopefully.
 
 ## Why?
 
 Maintaining a website takes time and money, both of which most musicians would rather be spending on their music. Third party platforms offer limited control, and some subscriptions can amount to hefty sums over time.  
 
-The idea with Scena that if essential info - artist details, releases, lyrics, gigs, etc. - is turned into data, that data can be used to generate rich, immersive websites, giving artists fully customisable spaces of their own on the web.
+The idea with Skene that if essential info - artist details, releases, lyrics, gigs, etc. - is turned into data, that data can be used to generate rich, immersive websites, giving artists fully customisable spaces of their own on the web.
 
 Think the [Neil Young Archives](https://neilyoungarchives.com/), but for everyone.
 
