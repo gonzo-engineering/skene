@@ -5,6 +5,7 @@ Part of the [Gonzo Engineering](https://gonzo.engineering) project, Skene is a c
 Currently powering:
 
 - [thomasashby.co.uk](https://thomasashby.co.uk)
+- [boness.art](https://boness.art)
 
 More to come, hopefully.
 
