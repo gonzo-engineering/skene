@@ -1,23 +1,10 @@
 <script lang="ts">
 	import { artistDetails } from '../../data/data';
-	import { slugifyName } from '$lib/utils/utils.js';
-	import type { Release } from '$lib/interfaces/releases.js';
-
-	export let data: {
-		releases: Release[];
-	};
+	import { releases, songs } from '../../data/data';
 
 	$: setting = 'all';
 
-	const allTracksWithParentSlug = data.releases
-		.flatMap((release) => {
-			const { slug } = release;
-			return release.tracks.map((track) => ({
-				...track,
-				parentRelease: slug
-			}));
-		})
-		.sort((a, b) => a.name.localeCompare(b.name));
+	const allTracksWithParentSlug = songs.sort((a, b) => a.name.localeCompare(b.name));
 </script>
 
 <svelte:head>
@@ -44,9 +31,7 @@
 			{#each allTracksWithParentSlug as track}
 				{#if track.lyrics}
 					<div>
-						<a
-							href={`/music/${slugifyName(track.parentRelease)}/${slugifyName(track.name)}#lyrics`}
-						>
+						<a href={`/music/${track.slug}}/${track.slug}#lyrics`}>
 							{track.name}
 						</a>
 					</div>
@@ -54,13 +39,13 @@
 			{/each}
 		</div>
 		<div class={`release-list ${setting === 'releases' ? 'active' : 'hidden'}`}>
-			{#each data.releases as release}
+			{#each releases as release}
 				<div class="release-container">
 					<h3>{release.name}</h3>
-					{#each release.tracks as track}
+					{#each release.songs as track}
 						{#if track.lyrics}
 							<div>
-								<a href={`/music/${release.slug}/${slugifyName(track.name)}#lyrics`}>
+								<a href={`/music/${release.slug}/${track.slug}#lyrics`}>
 									{track.name}
 								</a>
 							</div>

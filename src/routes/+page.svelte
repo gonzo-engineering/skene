@@ -2,11 +2,11 @@
 	import { artistDetails } from '../data/data';
 	import FancyReleaseCard from '$lib/components/FancyReleaseCard.svelte';
 	import Divider from '$lib/components/releases/Divider.svelte';
-	import { releases } from '../data/info/releases';
+	import { releases } from '../data/data';
 	import { artistSchema } from '$lib/utils/schema-generation';
 
 	const mostRecentRelease = releases.sort(
-		(a, b) => b.releaseDate.getMilliseconds() - a.releaseDate.getMilliseconds()
+		(a, b) => new Date(b.releaseDate).getMilliseconds() - new Date(a.releaseDate).getMilliseconds()
 	)[0];
 </script>
 

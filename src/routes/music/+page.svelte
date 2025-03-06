@@ -1,20 +1,13 @@
 <script lang="ts">
 	import ArtworkImage from '$lib/components/ArtworkImage.svelte';
-	import type { Release } from '$lib/interfaces/releases';
-	import { slugifyName } from '$lib/utils/utils';
 	import { artistDetails } from '../../data/data';
-
-	export let data;
-
-	const releases: Release[] = data.releases;
+	import { releases, songs } from '../../data/data';
 
 	$: chosenReleaseType = 'All';
 
 	const lps = releases.filter((release) => release.type === 'LP');
 	const eps = releases.filter((release) => release.type === 'EP');
-	const singles = releases.flatMap((release) =>
-		release.tracks.filter((track) => track.singleDetails)
-	);
+	const singles = songs.filter((song) => song.isSingle);
 </script>
 
 <svelte:head>
@@ -59,11 +52,11 @@
 				<div>
 					<a href={`music/${lp.slug}`}>
 						<div>
-							<ArtworkImage frontSrc={`/artwork/${lp.artwork.front}`} name={lp.name} />
+							<ArtworkImage frontSrc={lp.coverImage} name={lp.name} />
 						</div>
 					</a>
 					<div style="margin-top: 1rem;">{lp.name}</div>
-					<small>{lp.releaseDate.getFullYear()}</small>
+					<small>{lp.releaseDate}</small>
 				</div>
 			{/each}
 		</div>
@@ -76,11 +69,11 @@
 				<div>
 					<a href={`music/${ep.slug}`}>
 						<div>
-							<ArtworkImage frontSrc={`/artwork/${ep.artwork.front}`} name={ep.name} />
+							<ArtworkImage frontSrc={`/artwork/${ep.coverImage}`} name={ep.name} />
 						</div>
 					</a>
 					<div style="margin-top: 1rem;">{ep.name}</div>
-					<small>{ep.releaseDate.getFullYear()}</small>
+					<small>{ep.releaseDate}</small>
 				</div>
 			{/each}
 		</div>
@@ -89,20 +82,17 @@
 	{#if chosenReleaseType === 'Singles' || chosenReleaseType === 'All'}
 		<h3>Singles</h3>
 		<div class="row">
-			{#each releases.sort((a, b) => b.releaseDate.getTime() - a.releaseDate.getTime()) as release}
-				{#each release.tracks as track}
-					{#if track.singleDetails}
+			{#each releases.sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()) as release}
+				{#each release.songs as track}
+					{#if track.isSingle}
 						<div>
-							<a href={`music/${release.slug}/${slugifyName(track.name)}`}>
+							<a href={`music/${release.slug}/${track.slug}`}>
 								<div>
-									<ArtworkImage
-										frontSrc={`/artwork/${track.singleDetails.artwork.front}`}
-										name={track.name}
-									/>
+									<ArtworkImage frontSrc={release.coverImage} name={track.name} />
 								</div>
 							</a>
 							<div style="margin-top: 1rem;">{track.name}</div>
-							<small>{track.singleDetails.releaseDate.getFullYear()}</small>
+							<!-- <small>{track.singleDetails.releaseDate.getFullYear()}</small> -->
 						</div>
 					{/if}
 				{/each}

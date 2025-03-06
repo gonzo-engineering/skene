@@ -1,16 +1,13 @@
-import { slugifyName } from '$lib/utils/utils';
-import { releases } from '../../../../data/info/releases';
+import { releases } from '../../../../data/data';
 
 export const load = ({ params, url }) => {
 	const matchingRelease = releases.find((release) =>
-		release.tracks.find((track) => {
-			return slugifyName(track.name) === params.slug && url.pathname.includes(release.slug);
+		release.songs.find((track) => {
+			return track.slug === params.slug && url.pathname.includes(release.slug);
 		})
 	);
 
-	const matchingTrack = matchingRelease?.tracks.find(
-		(track) => slugifyName(track.name) === params.slug
-	);
+	const matchingTrack = matchingRelease?.songs.find((track) => track.slug === params.slug);
 
 	if (!matchingTrack) {
 		return {

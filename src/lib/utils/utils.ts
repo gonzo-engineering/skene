@@ -1,5 +1,3 @@
-import type { CollaboratorDetails } from '../../data/info/collaborators';
-
 export const prettifyStartTime = (dateTime: Date) => {
 	return dateTime.toLocaleTimeString('en-US', {
 		hour: 'numeric',
@@ -38,13 +36,7 @@ export const formatDurationInSeconds = (durationInSeconds: number): string => {
 	return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 };
 
-export const slugifyName = (name: string) => {
-	return name.replace(/ /g, '-').toLowerCase();
-};
-
-export const makeArtworkCredit = (
-	credits: { collaborator: CollaboratorDetails; role: string }[]
-) => {
+export const makeArtworkCredit = (credits: { collaborator: any; role: string }[]) => {
 	const roles = credits.map((credit) => credit.role);
 	if (roles.every((role) => role === roles[0]) && credits.length > 1) {
 		const lastCredit = credits.pop();

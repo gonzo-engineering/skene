@@ -16,16 +16,15 @@ export const generateReleaseSchema = (release: Release) => {
 		'@context': 'https://schema.org',
 		'@type': 'MusicAlbum',
 		name: release.name,
-		description: release.description,
 		genre: 'Rock',
 		byArtist: {
 			'@type': 'MusicGroup',
 			name: artistDetails.name
 		},
-		image: `${artistDetails.websiteUrl}/artwork/${release.artwork.front}`,
+		image: `${artistDetails.websiteUrl}/artwork/${release.coverImage}`,
 		datePublished: release.releaseDate,
-		numTracks: release.tracks.length,
-		track: release.tracks.map((track) => ({
+		numTracks: release.songs.length,
+		track: release.songs.map((track) => ({
 			'@type': 'MusicRecording',
 			name: track.name,
 			duration: `PT${track.durationInSeconds}S`,

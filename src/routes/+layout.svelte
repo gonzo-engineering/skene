@@ -24,4 +24,4 @@
 	<slot />
 </main>
 
-<Footer isAdminOrLoginPage />
+<Footer />

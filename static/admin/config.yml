@@ -9,6 +9,8 @@ backend:
 media_folder: static/images
 public_folder: /images
 
+logo_url: https://raw.githubusercontent.com/gonzo-engineering/dummy/refs/heads/main/docs/assets/dummy-logo.png
+
 collections:
   - name: "artist"
     label: "Artist"
@@ -40,7 +42,7 @@ collections:
       - {label: "Songwriting Credits", name: "songwritingCredits", widget: "list", field: {label: "Songwriting Credit", name: "songwritingCredit", widget: "string"}, required: false}
       - {label: "Personnel", name: "personnel", widget: "list", field: {label: "Person", name: "person", widget: "string"}, required: false}
       - {label: "YouTube Video ID", name: "youTubeVidId", widget: "string", required: false}
-      - {label: "Lyrics", name: "body", widget: "markdown", required: false}
+      - {label: "Lyrics", name: "lyrics", widget: "markdown", required: false}
   - name: "releases"
     label: "Releases"
     folder: "src/data/music/releases"

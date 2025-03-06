@@ -6,6 +6,9 @@
   "coverImage": "/images/sax-on-the-beach.jpg",
   "songs": [
     {
+      "slug": "jazzman"
+    },
+    {
       "slug": "moanin-lisa-blues"
     }
   ]
