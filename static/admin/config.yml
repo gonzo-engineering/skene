@@ -1,0 +1,27 @@
+local_backend:
+  url: http://localhost:8081/api/v1
+
+backend:
+  name: git-gateway
+  branch: main
+  quash_merges: true
+
+media_folder: static/images
+public_folder: /images/
+
+collections:
+  - name: "artist"
+    label: "Artist"
+    files:
+      - file: "src/data/info/artist.json"
+        label: "Artist"
+        name: "artist"
+        fields: 
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Email", name: "email", widget: "string", required: false}
+          - {label: "Website URL", name: "websiteUrl", widget: "string"}
+          - {label: "Store URL", name: "storeUrl", widget: "string", required: false}
+          - {label: "Social Links", name: "socialLinks", widget: "list", field: {label: "Social Link", name: "socialLink", widget: "string"}}
+          - {label: "Listening Links", name: "listeningLinks", widget: "list", field: {label: "Listening Link", name: "listeningLink", widget: "string"}}
+          - {label: "Goat Counter ID", name: "goatCounterId", widget: "string", required: false}
