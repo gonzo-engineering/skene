@@ -1,6 +1,6 @@
 <script lang="ts">
 	import HeaderLink from './HeaderLink.svelte';
-	import { artistDetails } from '../../../data/info/artist';
+	import { artistDetails } from '../../../data/info/data';
 
 	export let hasUpcomingGigs: boolean;
 

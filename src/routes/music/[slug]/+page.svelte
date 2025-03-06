@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { artistDetails } from '../../../data/info/artist';
+	import { artistDetails } from '../../../data/info/data';
 	import {
 		formatDate,
 		formatDurationInSeconds,

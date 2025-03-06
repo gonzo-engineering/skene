@@ -1,14 +1,18 @@
 <script lang="ts">
 	import ArtworkImage from '$lib/components/ArtworkImage.svelte';
+	import type { Release } from '$lib/interfaces/releases';
 	import { slugifyName } from '$lib/utils/utils';
-	import { artistDetails } from '../../data/info/artist';
+	import { artistDetails } from '../../data/info/data';
 
 	export let data;
+
+	const releases: Release[] = data.releases;
+
 	$: chosenReleaseType = 'All';
 
-	const lps = data.releases.filter((release) => release.type === 'LP');
-	const eps = data.releases.filter((release) => release.type === 'EP');
-	const singles = data.releases.flatMap((release) =>
+	const lps = releases.filter((release) => release.type === 'LP');
+	const eps = releases.filter((release) => release.type === 'EP');
+	const singles = releases.flatMap((release) =>
 		release.tracks.filter((track) => track.singleDetails)
 	);
 </script>
@@ -85,7 +89,7 @@
 	{#if chosenReleaseType === 'Singles' || chosenReleaseType === 'All'}
 		<h3>Singles</h3>
 		<div class="row">
-			{#each data.releases.sort((a, b) => b.releaseDate.getTime() - a.releaseDate.getTime()) as release}
+			{#each releases.sort((a, b) => b.releaseDate.getTime() - a.releaseDate.getTime()) as release}
 				{#each release.tracks as track}
 					{#if track.singleDetails}
 						<div>

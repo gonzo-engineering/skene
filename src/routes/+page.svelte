@@ -1,9 +1,9 @@
 <script>
-	import { artistDetails } from '../data/info/artist';
+	import { artistDetails } from '../data/info/data';
 	import FancyReleaseCard from '$lib/components/FancyReleaseCard.svelte';
 	import Divider from '$lib/components/releases/Divider.svelte';
-	import { artistSchema } from '../data/info/artist';
 	import { releases } from '../data/info/releases';
+	import { artistSchema } from '$lib/utils/schema-generation';
 
 	const mostRecentRelease = releases.sort(
 		(a, b) => b.releaseDate.getMilliseconds() - a.releaseDate.getMilliseconds()
@@ -12,7 +12,7 @@
 
 <svelte:head>
 	<title>{artistDetails.name}</title>
-	<meta name="description" content={artistDetails.bios.short} />
+	<meta name="description" content={artistDetails.description} />
 </svelte:head>
 
 <div class="content">
@@ -32,7 +32,7 @@
 		<div class="about-grid">
 			<img src="/main-artist-image.jpg" alt={`Photo of ${artistDetails.name}`} loading="lazy" />
 			<p>
-				{artistDetails.bios.short}
+				{artistDetails.description}
 			</p>
 		</div>
 	</section>

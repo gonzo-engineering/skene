@@ -1,7 +1,7 @@
 <script lang="ts">
 	import GigCard from '$lib/components/GigCard.svelte';
 	import type { GigDetails } from '$lib/interfaces/gigs';
-	import { artistDetails } from '../../data/info/artist';
+	import { artistDetails } from '../../data/info/data';
 
 	export let data: { gigs: GigDetails[] };
 

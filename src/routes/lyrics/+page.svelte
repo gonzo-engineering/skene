@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { artistDetails } from '../../data/info/artist.js';
+	import { artistDetails } from '../../data/info/data';
 	import { slugifyName } from '$lib/utils/utils.js';
 	import type { Release } from '$lib/interfaces/releases.js';
 

@@ -1,6 +1,15 @@
 import type { GigDetails } from '$lib/interfaces/gigs';
 import type { Release } from '$lib/interfaces/releases';
-import { artistDetails } from '../../data/info/artist';
+import { artistDetails } from '../../data/info/data';
+
+export const artistSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'MusicGroup',
+	name: artistDetails.name,
+	image: [],
+	url: artistDetails.websiteUrl,
+	sameAs: artistDetails.socialLinks
+};
 
 export const generateReleaseSchema = (release: Release) => {
 	return {

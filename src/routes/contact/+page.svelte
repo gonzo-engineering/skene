@@ -1,6 +1,6 @@
 <script>
 	import Button from '$lib/components/Button.svelte';
-	import { artistDetails } from '../../data/info/artist';
+	import { artistDetails } from '../../data/info/data';
 </script>
 
 <svelte:head>

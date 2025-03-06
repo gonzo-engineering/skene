@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Icon from './Icon.svelte';
 	import { icons } from '../utils/icon-paths';
-	import { artistDetails } from '../../data/info/artist';
+	import { artistDetails } from '../../data/info/data';
 
 	export let name;
 	export let frontSrc;
