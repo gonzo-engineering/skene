@@ -7,7 +7,7 @@
 
 	const lps = releases.filter((release) => release.type === 'LP');
 	const eps = releases.filter((release) => release.type === 'EP');
-	const singles = songs.filter((song) => song.isSingle);
+	const singles = songs.filter((song) => song.singleDetails);
 </script>
 
 <svelte:head>
@@ -84,11 +84,11 @@
 		<div class="row">
 			{#each releases.sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()) as release}
 				{#each release.songs as track}
-					{#if track.isSingle}
+					{#if track.singleDetails}
 						<div>
 							<a href={`music/${release.slug}/${track.slug}`}>
 								<div>
-									<ArtworkImage frontSrc={release.coverImage} name={track.name} />
+									<ArtworkImage frontSrc={track.singleDetails.coverImage} name={track.name} />
 								</div>
 							</a>
 							<div style="margin-top: 1rem;">{track.name}</div>

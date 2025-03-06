@@ -30,6 +30,9 @@ export interface Track {
 	durationInSeconds: number;
 	lyrics?: string;
 	personnel: string[];
-	isSingle: boolean;
 	youTubeVidId?: string;
+	singleDetails?: {
+		coverImage: string;
+		releaseDate: string;
+	};
 }

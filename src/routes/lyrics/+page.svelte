@@ -4,7 +4,15 @@
 
 	$: setting = 'all';
 
-	const allTracksWithParentSlug = songs.sort((a, b) => a.name.localeCompare(b.name));
+	const allTracksWithParentSlug = releases
+		.flatMap((release) => {
+			const { slug } = release;
+			return release.songs.map((track) => ({
+				...track,
+				parentRelease: slug
+			}));
+		})
+		.sort((a, b) => a.name.localeCompare(b.name));
 </script>
 
 <svelte:head>
@@ -31,7 +39,7 @@
 			{#each allTracksWithParentSlug as track}
 				{#if track.lyrics}
 					<div>
-						<a href={`/music/${track.slug}}/${track.slug}#lyrics`}>
+						<a href={`/music/${track.parentRelease}/${track.slug}#lyrics`}>
 							{track.name}
 						</a>
 					</div>

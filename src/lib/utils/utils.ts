@@ -6,7 +6,8 @@ export const prettifyStartTime = (dateTime: Date) => {
 	});
 };
 
-export const formatDate = (date: Date): string => {
+export const formatDate = (date: string): string => {
+	const dateObj = new Date(date);
 	const getDaySuffix = (day: number): string => {
 		if (day >= 11 && day <= 13) {
 			return 'th';
@@ -23,9 +24,9 @@ export const formatDate = (date: Date): string => {
 				return 'th';
 		}
 	};
-	const month = date.toLocaleString('default', { month: 'long' });
-	const day = date.getDate();
-	const year = date.getFullYear();
+	const month = dateObj.toLocaleString('default', { month: 'long' });
+	const day = dateObj.getDate();
+	const year = dateObj.getFullYear();
 	const daySuffix = getDaySuffix(day);
 	return `${month} ${day}${daySuffix}, ${year}`;
 };

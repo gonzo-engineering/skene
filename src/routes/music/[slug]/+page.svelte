@@ -28,7 +28,7 @@
 		purchaseLink
 	} = release;
 
-	const singles = data.release.songs.filter((release) => release.isSingle);
+	const singles = data.release.songs.filter((release) => release.singleDetails);
 	// .sort(
 	// 	(a, b) => a.singleDetails!.releaseDate.getTime() - b.singleDetails!.releaseDate.getTime()
 	// );
@@ -88,8 +88,7 @@
 					<div>
 						<div class="single-artwork box-shadow">
 							<a href={`/music/${slug}/${single.slug}`}>
-								<!-- TODO: Fix single artwork -->
-								<ArtworkImage frontSrc={single.name} name={single.name} />
+								<ArtworkImage frontSrc={single.singleDetails?.coverImage} name={single.name} />
 							</a>
 						</div>
 						<div class="single-details">

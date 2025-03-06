@@ -12,7 +12,7 @@
 <div class={`container card-background box-shadow ${isPast ? 'past-gig' : ''}`}>
 	<h4>{gig.venue}</h4>
 	<p>
-		{formatDate(new Date(gig.dateTime))}
+		{formatDate(gig.dateTime)}
 		{#if !isPast}- {prettifyStartTime(new Date(gig.dateTime))}{/if}
 	</p>
 	{#if !isPast}

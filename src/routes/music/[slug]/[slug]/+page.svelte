@@ -11,14 +11,16 @@
 		parentRelease: Release;
 	};
 
-	// const inferNthSingle = (track: Track) => {
-	// 	const singles = data.parentRelease.songs
-	// 		.filter((release) => release.isSingle)
-	// 		.sort(
-	// 			(a, b) => a.singleDetails!.releaseDate.getTime() - b.singleDetails!.releaseDate.getTime()
-	// 		);
-	// 	return singles.indexOf(track) + 1;
-	// };
+	const inferNthSingle = (track: Track) => {
+		const singles = data.parentRelease.songs
+			.filter((release) => release.singleDetails)
+			.sort(
+				(a, b) =>
+					new Date(a.singleDetails!.releaseDate).getTime() -
+					new Date(b.singleDetails!.releaseDate).getTime()
+			);
+		return singles.indexOf(track) + 1;
+	};
 </script>
 
 <svelte:head>
@@ -34,18 +36,18 @@
 	<div class="head">
 		<h2>{data.track.name}</h2>
 		<div>
-			<!-- {isSingle ? `Single #${inferNthSingle(data.track)} from` : 'From'} -->
+			{data.track.singleDetails ? `Single #${inferNthSingle(data.track)} from` : 'From'}
 			<a href={`/music/${data.parentRelease.slug}`}>{data.parentRelease.name}</a>
 		</div>
 	</div>
 
-	{#if data.track.isSingle}
-		<ArtworkImage frontSrc={data.track.name} name={data.track.name} />
+	{#if data.track.singleDetails}
+		<ArtworkImage frontSrc={data.track.singleDetails.coverImage} name={data.track.name} />
 		<div class="release-date">
 			Released
-			<!-- <time datetime={data.track.singleDetails.releaseDate.toString()}
+			<time datetime={data.track.singleDetails.releaseDate.toString()}
 				>{formatDate(data.track.singleDetails.releaseDate)}
-			</time> -->
+			</time>
 		</div>
 	{/if}
 
