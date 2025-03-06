@@ -56,3 +56,15 @@ collections:
       - {label: "Songs", name: "songs", widget: "list", fields: [
           {label: "Song", name: "slug", widget: "relation", collection: "songs", value_field: "slug", display_fields: ["name"], search_fields: ["name"]}
         ]}
+  - name: "gigs"
+    label: "Gigs"
+    folder: "src/data/gigs"
+    create: true
+    slug: "{{fields.dateTime}}-{{fields.venue}}"
+    identifier_field: "slug"
+    format: "json"
+    fields:
+      - {label: "DateTime", name: "dateTime", widget: "datetime"}
+      - {label: "Venue", name: "venue", widget: "string"}
+      - {label: "Venue Address", name: "venueAddress", widget: "string"}
+      - {label: "Ticket Link", name: "ticketLink", widget: "string", required: false}
