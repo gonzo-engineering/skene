@@ -1,5 +1,5 @@
 <script>
-	import { artistDetails } from '../data/info/data';
+	import { artistDetails } from '../data/data';
 	import FancyReleaseCard from '$lib/components/FancyReleaseCard.svelte';
 	import Divider from '$lib/components/releases/Divider.svelte';
 	import { releases } from '../data/info/releases';

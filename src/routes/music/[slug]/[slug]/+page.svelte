@@ -4,7 +4,7 @@
 	import YouTubeEmbed from '$lib/components/YouTubeEmbed.svelte';
 	import type { Release, Track } from '$lib/interfaces/releases';
 	import { formatDate, makeArtworkCredit } from '$lib/utils/utils';
-	import { artistDetails } from '../../../../data/info/data';
+	import { artistDetails } from '../../../../data/data';
 
 	export let data: {
 		track: Track;

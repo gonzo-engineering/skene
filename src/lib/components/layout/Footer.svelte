@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { artistDetails } from '../../../data/info/data';
+	import { artistDetails } from '../../../data/data';
 	import Icon from '../Icon.svelte';
 	import { icons } from '../../utils/icon-paths';
 </script>

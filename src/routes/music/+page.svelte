@@ -2,7 +2,7 @@
 	import ArtworkImage from '$lib/components/ArtworkImage.svelte';
 	import type { Release } from '$lib/interfaces/releases';
 	import { slugifyName } from '$lib/utils/utils';
-	import { artistDetails } from '../../data/info/data';
+	import { artistDetails } from '../../data/data';
 
 	export let data;
 

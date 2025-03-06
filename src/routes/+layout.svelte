@@ -3,7 +3,7 @@
 	import '$lib/styles/global.css';
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
-	import { artistDetails } from '../data/info/data';
+	import { artistDetails } from '../data/data';
 
 	export let data;
 </script>

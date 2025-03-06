@@ -1,6 +1,6 @@
 import type { GigDetails } from '$lib/interfaces/gigs';
 import type { Release } from '$lib/interfaces/releases';
-import { artistDetails } from '../../data/info/data';
+import { artistDetails } from '../../data/data';
 
 export const artistSchema = {
 	'@context': 'https://schema.org',
@@ -46,9 +46,9 @@ export const generateGigSchema = (gig: GigDetails) => {
 		location: {
 			'@type': 'MusicVenue',
 			name: gig.venue,
-			address: gig.address
+			address: gig.venueAddress
 		},
-		startDate: gig.dateTimeStart,
+		startDate: gig.dateTime,
 		url: gig.ticketLink
 	};
 };
