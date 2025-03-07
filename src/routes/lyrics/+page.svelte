@@ -1,18 +1,13 @@
 <script lang="ts">
-	import { artistDetails } from '../../data/info/artist.js';
-	import { slugifyName } from '$lib/utils/utils.js';
-	import type { Release } from '$lib/interfaces/releases.js';
-
-	export let data: {
-		releases: Release[];
-	};
+	import { artistDetails } from '../../data/data';
+	import { releases, songs } from '../../data/data';
 
 	$: setting = 'all';
 
-	const allTracksWithParentSlug = data.releases
+	const allTracksWithParentSlug = releases
 		.flatMap((release) => {
 			const { slug } = release;
-			return release.tracks.map((track) => ({
+			return release.songs.map((track) => ({
 				...track,
 				parentRelease: slug
 			}));
@@ -44,9 +39,7 @@
 			{#each allTracksWithParentSlug as track}
 				{#if track.lyrics}
 					<div>
-						<a
-							href={`/music/${slugifyName(track.parentRelease)}/${slugifyName(track.name)}#lyrics`}
-						>
+						<a href={`/music/${track.parentRelease}/${track.slug}#lyrics`}>
 							{track.name}
 						</a>
 					</div>
@@ -54,13 +47,13 @@
 			{/each}
 		</div>
 		<div class={`release-list ${setting === 'releases' ? 'active' : 'hidden'}`}>
-			{#each data.releases as release}
+			{#each releases as release}
 				<div class="release-container">
 					<h3>{release.name}</h3>
-					{#each release.tracks as track}
+					{#each release.songs as track}
 						{#if track.lyrics}
 							<div>
-								<a href={`/music/${release.slug}/${slugifyName(track.name)}#lyrics`}>
+								<a href={`/music/${release.slug}/${track.slug}#lyrics`}>
 									{track.name}
 								</a>
 							</div>

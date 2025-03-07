@@ -1,0 +1,76 @@
+local_backend:
+  url: http://localhost:8081/api/v1
+
+backend:
+  name: git-gateway
+  branch: main
+  quash_merges: true
+
+media_folder: static/images
+public_folder: /images
+
+logo_url: https://raw.githubusercontent.com/gonzo-engineering/dummy/refs/heads/main/docs/assets/dummy-logo.png
+
+collections:
+  - name: "artist"
+    label: "Artist"
+    files:
+      - file: "src/data/info/artist.json"
+        label: "Artist"
+        name: "artist"
+        fields: 
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Email", name: "email", widget: "string", required: false}
+          - {label: "Website URL", name: "websiteUrl", widget: "string"}
+          - {label: "Store URL", name: "storeUrl", widget: "string", required: false}
+          - {label: "Social Links", name: "socialLinks", widget: "list", field: {label: "Social Link", name: "socialLink", widget: "string"}}
+          - {label: "Listening Links", name: "listeningLinks", widget: "list", field: {label: "Listening Link", name: "listeningLink", widget: "string"}}
+          - {label: "Goat Counter ID", name: "goatCounterId", widget: "string", required: false}
+  - name: "songs"
+    label: "Songs"
+    folder: "src/data/music/songs"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: "name"
+    format: "json"
+    fields:
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Duration (in seconds)", name: "durationInSeconds", widget: "number"}
+      - {label: "Single Details", name: "singleDetails", widget: "object", fields: [
+          {label: "Release Date", name: "releaseDate", widget: "datetime", format: "L"},
+          {label: "Cover Image", name: "coverImage", widget: "image"}
+        ], required: false}
+      - {label: "Songwriting Credits", name: "songwritingCredits", widget: "list", field: {label: "Songwriting Credit", name: "songwritingCredit", widget: "string"}, required: false}
+      - {label: "Personnel", name: "personnel", widget: "list", field: {label: "Person", name: "person", widget: "string"}, required: false}
+      - {label: "YouTube Video ID", name: "youTubeVidId", widget: "string", required: false}
+      - {label: "Lyrics", name: "lyrics", widget: "markdown", required: false}      
+  - name: "releases"
+    label: "Releases"
+    folder: "src/data/music/releases"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: "name"
+    format: "json"
+    fields:
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Type", name: "type", widget: "select", options: ["LP", "EP", "Single"]}
+      - {label: "Release Date", name: "releaseDate", widget: "datetime"}
+      - {label: "Cover Image", name: "coverImage", widget: "image"}
+      - {label: "Songs", name: "songs", widget: "list", fields: [
+          {label: "Song", name: "slug", widget: "relation", collection: "songs", value_field: "slug", display_fields: ["name"], search_fields: ["name"]}
+        ]}
+  - name: "gigs"
+    label: "Gigs"
+    folder: "src/data/gigs"
+    create: true
+    slug: "{{fields.dateTime}}-{{fields.venue}}"
+    identifier_field: "dateTime"
+    format: "json"
+    fields:
+      - {label: "DateTime", name: "dateTime", widget: "datetime"}
+      - {label: "Venue", name: "venue", widget: "string"}
+      - {label: "Venue Address", name: "venueAddress", widget: "string"}
+      - {label: "Ticket Link", name: "ticketLink", widget: "string", required: false}

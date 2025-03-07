@@ -1,7 +1,6 @@
 export interface GigDetails {
-	id: number;
 	venue: string;
-	address: string;
-	dateTimeStart: string;
+	venueAddress: string;
+	dateTime: string;
 	ticketLink?: string;
 }

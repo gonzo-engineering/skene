@@ -12,12 +12,12 @@
 <div class={`container card-background box-shadow ${isPast ? 'past-gig' : ''}`}>
 	<h4>{gig.venue}</h4>
 	<p>
-		{formatDate(new Date(gig.dateTimeStart))}
-		{#if !isPast}- {prettifyStartTime(new Date(gig.dateTimeStart))}{/if}
+		{formatDate(gig.dateTime)}
+		{#if !isPast}- {prettifyStartTime(new Date(gig.dateTime))}{/if}
 	</p>
 	{#if !isPast}
 		<p>
-			{gig.address} (<a href={`https://maps.google.com/?q=${gig.address}`} target="_blank"
+			{gig.venueAddress} (<a href={`https://maps.google.com/?q=${gig.venueAddress}`} target="_blank"
 				>Get directions</a
 			>)
 		</p>
