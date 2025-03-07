@@ -56,7 +56,7 @@
 						</div>
 					</a>
 					<div style="margin-top: 1rem;">{lp.name}</div>
-					<small>{lp.releaseDate}</small>
+					<small>{new Date(lp.releaseDate).getFullYear()}</small>
 				</div>
 			{/each}
 		</div>
@@ -73,7 +73,7 @@
 						</div>
 					</a>
 					<div style="margin-top: 1rem;">{ep.name}</div>
-					<small>{ep.releaseDate}</small>
+					<small>{new Date(ep.releaseDate).getFullYear()}</small>
 				</div>
 			{/each}
 		</div>
@@ -92,7 +92,7 @@
 								</div>
 							</a>
 							<div style="margin-top: 1rem;">{track.name}</div>
-							<!-- <small>{track.singleDetails.releaseDate.getFullYear()}</small> -->
+							<small>{new Date(track.singleDetails.releaseDate).getFullYear()}</small>
 						</div>
 					{/if}
 				{/each}
