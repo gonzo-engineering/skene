@@ -4,8 +4,9 @@
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import { artistDetails } from '../data/data';
+	import { gigs } from '../data/data';
 
-	export let data;
+	const hasUpcomingGigs = gigs.some((gig) => new Date(gig.dateTime) > new Date());
 </script>
 
 <svelte:head>
@@ -18,7 +19,7 @@
 	{/if}
 </svelte:head>
 
-<Header hasUpcomingGigs={data.hasUpcomingGigs} />
+<Header {hasUpcomingGigs} />
 
 <main>
 	<slot />
