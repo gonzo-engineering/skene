@@ -1,12 +1,8 @@
 <script lang="ts">
 	import HeaderLink from './HeaderLink.svelte';
-	import { artistDetails } from '../../../data/data';
+	import { artistDetails, gigs } from '../../../data/data';
 
-	let {
-		hasUpcomingGigs
-	}: {
-		hasUpcomingGigs: boolean;
-	} = $props();
+	const hasUpcomingGigs = gigs.some((gig) => new Date(gig.dateTime) > new Date());
 
 	let isStuck = $state(false);
 
@@ -33,7 +29,9 @@
 		<nav>
 			<HeaderLink href="/music" title="Music" />
 			<HeaderLink href="/lyrics" title="Lyrics" />
-			<HeaderLink href="/live" title="Live" />
+			{#if gigs.length > 0}
+				<HeaderLink href="/live" title="Live" />
+			{/if}
 			{#if artistDetails.storeUrl}
 				<HeaderLink href={artistDetails.storeUrl} title="Shop" targetBlank />
 			{/if}
