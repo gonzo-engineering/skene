@@ -5,8 +5,12 @@
 	import { icons } from '../utils/icon-paths';
 	import type { GigDetails } from '$lib/interfaces/gigs';
 
-	export let gig: GigDetails;
-	export let isPast: boolean = false;
+	interface Props {
+		gig: GigDetails;
+		isPast?: boolean;
+	}
+
+	let { gig, isPast = false }: Props = $props();
 </script>
 
 <div class={`container card-background box-shadow ${isPast ? 'past-gig' : ''}`}>

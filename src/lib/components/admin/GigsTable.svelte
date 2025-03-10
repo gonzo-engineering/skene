@@ -2,8 +2,12 @@
 	import type { GigDetails } from '$lib/interfaces/gigs';
 	import { formatDate, prettifyStartTime } from '$lib/utils/utils';
 
-	export let gigs: GigDetails[];
-	export let handleDeleteFunction: (id: number) => Promise<void>;
+	interface Props {
+		gigs: GigDetails[];
+		handleDeleteFunction: (id: number) => Promise<void>;
+	}
+
+	let { gigs, handleDeleteFunction }: Props = $props();
 </script>
 
 <table>
@@ -31,7 +35,7 @@
 						-
 					{/if}
 				</td>
-				<td><button on:click={() => handleDeleteFunction(gig.id)}>Delete</button></td>
+				<td><button onclick={() => handleDeleteFunction(gig.id)}>Delete</button></td>
 			</tr>
 		{/each}
 	</tbody>

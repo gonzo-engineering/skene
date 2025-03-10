@@ -2,16 +2,21 @@
 	import HeaderLink from './HeaderLink.svelte';
 	import { artistDetails } from '../../../data/data';
 
-	export let hasUpcomingGigs: boolean;
+	interface Props {
+		hasUpcomingGigs: boolean;
+	}
 
-	$: isStuck = false;
+	let { hasUpcomingGigs }: Props = $props();
+
+	let isStuck = $state(false);
+	
 
 	const handleScroll = () => {
 		isStuck = window.scrollY > 0;
 	};
 </script>
 
-<svelte:window on:scroll={handleScroll} />
+<svelte:window onscroll={handleScroll} />
 
 <div class="sticky-container" class:box-shadow={isStuck}>
 	{#if hasUpcomingGigs}

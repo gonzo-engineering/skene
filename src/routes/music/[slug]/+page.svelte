@@ -10,9 +10,13 @@
 	import Button from '$lib/components/Button.svelte';
 	import type { Release } from '$lib/interfaces/releases';
 
-	export let data: {
+	interface Props {
+		data: {
 		release: Release;
 	};
+	}
+
+	let { data }: Props = $props();
 
 	const release = data.release;
 

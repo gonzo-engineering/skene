@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let images: string[];
+	interface Props {
+		images: string[];
+	}
+
+	let { images }: Props = $props();
 </script>
 
 <h3>Gallery</h3>

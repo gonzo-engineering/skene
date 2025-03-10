@@ -3,7 +3,8 @@
 	import { artistDetails } from '../../data/data';
 	import { releases, songs } from '../../data/data';
 
-	$: chosenReleaseType = 'All';
+	let chosenReleaseType = $state('All');
+	
 
 	const lps = releases.filter((release) => release.type === 'LP');
 	const eps = releases.filter((release) => release.type === 'EP');
@@ -21,25 +22,25 @@
 	<div class="filters">
 		<span
 			class={chosenReleaseType === 'All' ? 'active-toggle' : 'toggle'}
-			on:click={() => (chosenReleaseType = 'All')}
+			onclick={() => (chosenReleaseType = 'All')}
 		>
 			All
 		</span>
 		<span
 			class={chosenReleaseType === 'LPs' ? 'active-toggle' : 'toggle'}
-			on:click={() => (chosenReleaseType = 'LPs')}
+			onclick={() => (chosenReleaseType = 'LPs')}
 		>
 			LPs ({lps.length})
 		</span>
 		<span
 			class={chosenReleaseType === 'EPs' ? 'active-toggle' : 'toggle'}
-			on:click={() => (chosenReleaseType = 'EPs')}
+			onclick={() => (chosenReleaseType = 'EPs')}
 		>
 			EPs ({eps.length})
 		</span>
 		<span
 			class={chosenReleaseType === 'Singles' ? 'active-toggle' : 'toggle'}
-			on:click={() => (chosenReleaseType = 'Singles')}
+			onclick={() => (chosenReleaseType = 'Singles')}
 		>
 			Singles ({singles.length})
 		</span>

@@ -3,11 +3,21 @@
 	import { icons } from '../utils/icon-paths';
 	import { artistDetails } from '../../data/data';
 
-	export let name;
-	export let frontSrc;
-	export let backSrc: string | undefined = undefined;
-	export let caption: string | undefined = undefined;
-	$: flipped = false;
+	interface Props {
+		name: any;
+		frontSrc: any;
+		backSrc?: string | undefined;
+		caption?: string | undefined;
+	}
+
+	let {
+		name,
+		frontSrc,
+		backSrc = undefined,
+		caption = undefined
+	}: Props = $props();
+	let flipped = $state(false);
+	
 </script>
 
 <figure>
@@ -27,7 +37,7 @@
 </figure>
 
 {#if backSrc}
-	<button class="toggle" on:click={() => (flipped = !flipped)} aria-label="Toggle flip">
+	<button class="toggle" onclick={() => (flipped = !flipped)} aria-label="Toggle flip">
 		Flip <Icon icon={icons.rotate} size={'1rem'} />
 	</button>
 {/if}
