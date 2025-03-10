@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils/utils';
 
-	export let name;
-	export let type;
-	export let releaseDate;
+	let { name, type, releaseDate } = $props();
 
 	const releaseDateAsDate = new Date(releaseDate);
 </script>

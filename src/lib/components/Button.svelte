@@ -1,6 +1,11 @@
 <script lang="ts">
-	export let link: string;
-	export let label: string;
+	let {
+		link,
+		label
+	}: {
+		link: string;
+		label: string;
+	} = $props();
 </script>
 
 <a href={link}>

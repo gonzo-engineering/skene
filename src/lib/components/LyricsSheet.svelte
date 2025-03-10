@@ -1,5 +1,5 @@
-<script>
-	export let lyrics;
+<script lang="ts">
+	let { lyrics } = $props();
 </script>
 
 <div class="sheet box-shadow" style="transform: rotate({Math.random() * 2 - 1}deg);">

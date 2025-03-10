@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let id: string;
+	let { id }: { id: string } = $props();
 </script>
 
 <iframe
@@ -10,7 +10,7 @@
 	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 	allowfullscreen
 	loading="lazy"
-/>
+></iframe>
 
 <style>
 	iframe {

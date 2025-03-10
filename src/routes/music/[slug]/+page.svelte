@@ -10,9 +10,13 @@
 	import Button from '$lib/components/Button.svelte';
 	import type { Release } from '$lib/interfaces/releases';
 
-	export let data: {
-		release: Release;
-	};
+	let {
+		data
+	}: {
+		data: {
+			release: Release;
+		};
+	} = $props();
 
 	const release = data.release;
 
@@ -88,7 +92,10 @@
 					<div>
 						<div class="single-artwork box-shadow">
 							<a href={`/music/${slug}/${single.slug}`}>
-								<ArtworkImage frontSrc={single.singleDetails?.coverImage} name={single.name} />
+								<ArtworkImage
+									frontSrc={single.singleDetails?.coverImage || ''}
+									name={single.name}
+								/>
 							</a>
 						</div>
 						<div class="single-details">

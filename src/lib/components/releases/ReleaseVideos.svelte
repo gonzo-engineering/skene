@@ -1,7 +1,7 @@
 <script lang="ts">
 	import YouTubeEmbed from '../YouTubeEmbed.svelte';
 
-	export let youTubeVidIds;
+	let { youTubeVidIds } = $props();
 </script>
 
 <h3>Videos</h3>

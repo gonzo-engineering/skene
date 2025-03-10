@@ -1,5 +1,5 @@
 <div class="or-spacer">
-	<div class="mask" />
+	<div class="mask"></div>
 </div>
 
 <style>

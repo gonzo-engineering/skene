@@ -3,9 +3,15 @@
 	import Icon from '../Icon.svelte';
 	import { icons } from '../../utils/icon-paths';
 
-	export let href: string;
-	export let title: string;
-	export let targetBlank: boolean = false;
+	let {
+		href,
+		title,
+		targetBlank = false
+	}: {
+		href: string;
+		title: string;
+		targetBlank?: boolean;
+	} = $props();
 </script>
 
 <a

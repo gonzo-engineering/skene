@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let images: string[];
+	let { images }: { images: string[] } = $props();
 </script>
 
 <h3>Gallery</h3>
