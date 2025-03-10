@@ -3,21 +3,18 @@
 	import { icons } from '../utils/icon-paths';
 	import { artistDetails } from '../../data/data';
 
-	interface Props {
-		name: any;
-		frontSrc: any;
-		backSrc?: string | undefined;
-		caption?: string | undefined;
-	}
-
 	let {
 		name,
 		frontSrc,
 		backSrc = undefined,
 		caption = undefined
-	}: Props = $props();
+	}: {
+		name: string;
+		frontSrc: string;
+		backSrc?: string | undefined;
+		caption?: string | undefined;
+	} = $props();
 	let flipped = $state(false);
-	
 </script>
 
 <figure>

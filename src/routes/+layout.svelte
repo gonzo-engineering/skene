@@ -5,11 +5,9 @@
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import { artistDetails } from '../data/data';
 	import { gigs } from '../data/data';
-	interface Props {
-		children?: import('svelte').Snippet;
-	}
+	import type { Snippet } from 'svelte';
 
-	let { children }: Props = $props();
+	let { children }: { children?: Snippet } = $props();
 
 	const hasUpcomingGigs = gigs.some((gig) => new Date(gig.dateTime) > new Date());
 </script>

@@ -1,9 +1,5 @@
 <script lang="ts">
-	interface Props {
-		id: string;
-	}
-
-	let { id }: Props = $props();
+	let { id }: { id: string } = $props();
 </script>
 
 <iframe

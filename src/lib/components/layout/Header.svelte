@@ -2,14 +2,13 @@
 	import HeaderLink from './HeaderLink.svelte';
 	import { artistDetails } from '../../../data/data';
 
-	interface Props {
+	let {
+		hasUpcomingGigs
+	}: {
 		hasUpcomingGigs: boolean;
-	}
-
-	let { hasUpcomingGigs }: Props = $props();
+	} = $props();
 
 	let isStuck = $state(false);
-	
 
 	const handleScroll = () => {
 		isStuck = window.scrollY > 0;

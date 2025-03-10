@@ -1,9 +1,5 @@
 <script lang="ts">
-	interface Props {
-		images: string[];
-	}
-
-	let { images }: Props = $props();
+	let { images }: { images: string[] } = $props();
 </script>
 
 <h3>Gallery</h3>

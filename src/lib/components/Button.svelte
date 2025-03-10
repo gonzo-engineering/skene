@@ -1,10 +1,11 @@
 <script lang="ts">
-	interface Props {
+	let {
+		link,
+		label
+	}: {
 		link: string;
 		label: string;
-	}
-
-	let { link, label }: Props = $props();
+	} = $props();
 </script>
 
 <a href={link}>

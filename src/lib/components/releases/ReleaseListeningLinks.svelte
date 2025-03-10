@@ -3,11 +3,11 @@
 	import type { ListeningLink } from '$lib/interfaces/releases';
 	import { icons } from '$lib/utils/icon-paths';
 
-	interface Props {
+	let {
+		listeningLinks
+	}: {
 		listeningLinks: ListeningLink[];
-	}
-
-	let { listeningLinks }: Props = $props();
+	} = $props();
 </script>
 
 <ul class="listening-links">

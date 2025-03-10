@@ -6,14 +6,14 @@
 	import { formatDate, makeArtworkCredit } from '$lib/utils/utils';
 	import { artistDetails } from '../../../../data/data';
 
-	interface Props {
+	let {
+		data
+	}: {
 		data: {
-		track: Track;
-		parentRelease: Release;
-	};
-	}
-
-	let { data }: Props = $props();
+			track: Track;
+			parentRelease: Release;
+		};
+	} = $props();
 
 	const inferNthSingle = (track: Track) => {
 		const singles = data.parentRelease.songs

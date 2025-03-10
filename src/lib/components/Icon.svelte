@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { styleSettings } from '$lib/styles/config';
 
-	interface Props {
+	let {
+		icon,
+		size = styleSettings.defaultIconSize,
+		color = styleSettings.defaultIconColor
+	}: {
 		icon: { viewBox: string; d: string };
 		size?: string | number;
 		color?: string;
-	}
-
-	let { icon, size = styleSettings.defaultIconSize, color = styleSettings.defaultIconColor }: Props = $props();
+	} = $props();
 </script>
 
 <svg

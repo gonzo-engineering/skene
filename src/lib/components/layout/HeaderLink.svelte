@@ -3,13 +3,15 @@
 	import Icon from '../Icon.svelte';
 	import { icons } from '../../utils/icon-paths';
 
-	interface Props {
+	let {
+		href,
+		title,
+		targetBlank = false
+	}: {
 		href: string;
 		title: string;
 		targetBlank?: boolean;
-	}
-
-	let { href, title, targetBlank = false }: Props = $props();
+	} = $props();
 </script>
 
 <a

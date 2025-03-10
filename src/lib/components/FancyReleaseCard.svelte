@@ -2,13 +2,15 @@
 	import type { Release } from '$lib/interfaces/releases';
 	import ArtworkImage from './ArtworkImage.svelte';
 
-	interface Props {
+	let {
+		release,
+		subheading,
+		discType = 'CD'
+	}: {
 		release: Release;
 		subheading: string;
 		discType?: 'CD' | 'Vinyl';
-	}
-
-	let { release, subheading, discType = 'CD' }: Props = $props();
+	} = $props();
 
 	const rings = 30;
 	const radius = 11;
