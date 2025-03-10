@@ -4,20 +4,20 @@
 	import YouTubeEmbed from '$lib/components/YouTubeEmbed.svelte';
 	import type { Release, Track } from '$lib/interfaces/releases';
 	import { formatDate, makeArtworkCredit } from '$lib/utils/utils';
-	import { artistDetails } from '../../../../data/info/artist';
+	import { artistDetails } from '../../../../data/data';
 
 	export let data: {
 		track: Track;
 		parentRelease: Release;
 	};
 
-	const isSingle = data.track.singleDetails !== undefined;
-
 	const inferNthSingle = (track: Track) => {
-		const singles = data.parentRelease.tracks
+		const singles = data.parentRelease.songs
 			.filter((release) => release.singleDetails)
 			.sort(
-				(a, b) => a.singleDetails!.releaseDate.getTime() - b.singleDetails!.releaseDate.getTime()
+				(a, b) =>
+					new Date(a.singleDetails!.releaseDate).getTime() -
+					new Date(b.singleDetails!.releaseDate).getTime()
 			);
 		return singles.indexOf(track) + 1;
 	};
@@ -36,17 +36,13 @@
 	<div class="head">
 		<h2>{data.track.name}</h2>
 		<div>
-			{isSingle ? `Single #${inferNthSingle(data.track)} from` : 'From'}
+			{data.track.singleDetails ? `Single #${inferNthSingle(data.track)} from` : 'From'}
 			<a href={`/music/${data.parentRelease.slug}`}>{data.parentRelease.name}</a>
 		</div>
 	</div>
 
 	{#if data.track.singleDetails}
-		<ArtworkImage
-			frontSrc={`/artwork/${data.track.singleDetails.artwork.front}`}
-			name={data.track.name}
-			caption={makeArtworkCredit(data.track.singleDetails.artwork.credits)}
-		/>
+		<ArtworkImage frontSrc={data.track.singleDetails.coverImage} name={data.track.name} />
 		<div class="release-date">
 			Released
 			<time datetime={data.track.singleDetails.releaseDate.toString()}

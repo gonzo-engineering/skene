@@ -1,18 +1,12 @@
 <script lang="ts">
-	import { artistDetails } from '../../../data/info/artist';
-	import {
-		formatDate,
-		formatDurationInSeconds,
-		makeArtworkCredit,
-		slugifyName
-	} from '$lib/utils/utils';
+	import { artistDetails } from '../../../data/data';
+	import { formatDate, formatDurationInSeconds, makeArtworkCredit } from '$lib/utils/utils';
 	import ReleaseHeader from '$lib/components/releases/ReleaseHeader.svelte';
 	import ReleaseListeningLinks from '$lib/components/releases/ReleaseListeningLinks.svelte';
 	import ArtworkImage from '$lib/components/ArtworkImage.svelte';
 	import { generateReleaseSchema } from '$lib/utils/schema-generation';
 	import ReleaseGallery from '$lib/components/releases/ReleaseGallery.svelte';
 	import ReleaseVideos from '$lib/components/releases/ReleaseVideos.svelte';
-	import ArtworkFlipping from '$lib/components/ArtworkImage.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import type { Release } from '$lib/interfaces/releases';
 
@@ -26,54 +20,43 @@
 		name,
 		type,
 		slug,
-		description,
 		releaseDate,
-		recordedAt,
-		artwork,
+		coverImage,
 		listeningLinks,
-		tracks,
+		songs,
 		otherImages,
 		purchaseLink
 	} = release;
 
-	const singles = data.release.tracks
-		.filter((release) => release.singleDetails)
-		.sort(
-			(a, b) => a.singleDetails!.releaseDate.getTime() - b.singleDetails!.releaseDate.getTime()
-		);
+	const singles = data.release.songs.filter((release) => release.singleDetails);
+	// .sort(
+	// 	(a, b) => a.singleDetails!.releaseDate.getTime() - b.singleDetails!.releaseDate.getTime()
+	// );
 
-	const youTubeVidIds = data.release.tracks
+	const youTubeVidIds = data.release.songs
 		.filter((track) => track.youTubeVidId)
 		.map((track) => track.youTubeVidId);
 </script>
 
 <svelte:head>
 	<title>{name} · Music · {artistDetails.name}</title>
-	<meta name="description" content={description} />
+	<meta name="description" content={`Info and media for '${name}' by ${artistDetails.name}'.`} />
 </svelte:head>
 
 <div class="container">
 	<ReleaseHeader {name} {type} {releaseDate} />
 
 	<section>
-		<ArtworkFlipping
-			{name}
-			frontSrc={`/artwork/${artwork.front}`}
-			backSrc={artwork.back ? `/artwork/${artwork.back}` : undefined}
-			caption={makeArtworkCredit(artwork.credits)}
-		/>
+		<ArtworkImage frontSrc={coverImage} {name} />
 	</section>
 
-	<section>
+	<!-- <section>
 		<ReleaseListeningLinks {listeningLinks} />
 		<Button link={purchaseLink} label="Buy" />
-	</section>
+	</section> -->
 
 	<section>
-		{#if description}
-			<div class="description">{description}</div>
-		{/if}
-		<div class="places-recorded">
+		<!-- <div class="places-recorded">
 			Recorded at
 			{#each recordedAt as studio, i}
 				{#if studio.link}
@@ -82,16 +65,16 @@
 					{studio.name}{#if i < recordedAt.length - 1},&nbsp;{/if}
 				{/if}
 			{/each}
-		</div>
+		</div> -->
 	</section>
 
 	<section>
 		<h3>Tracks</h3>
 		<ol>
-			{#each tracks as track}
+			{#each songs as song}
 				<li>
-					<a href={`/music/${slug}/${slugifyName(track.name)}`}>{track.name}</a>
-					<small>{formatDurationInSeconds(track.durationInSeconds)}</small>
+					<a href={`/music/${slug}/${song.slug}`}>{song.name}</a>
+					<small>{formatDurationInSeconds(song.durationInSeconds)}</small>
 				</li>
 			{/each}
 		</ol>
@@ -104,18 +87,15 @@
 				{#each singles as single}
 					<div>
 						<div class="single-artwork box-shadow">
-							<a href={`/music/${slug}/${slugifyName(single.name)}`}>
-								<ArtworkImage
-									frontSrc={`/artwork/${single.singleDetails?.artwork.front}`}
-									name={single.name}
-								/>
+							<a href={`/music/${slug}/${single.slug}`}>
+								<ArtworkImage frontSrc={single.singleDetails?.coverImage} name={single.name} />
 							</a>
 						</div>
 						<div class="single-details">
 							<h4>{single.name}</h4>
-							{#if single.singleDetails?.releaseDate}
+							<!-- {#if single.singleDetails?.releaseDate}
 								<small>{formatDate(single.singleDetails?.releaseDate)}</small>
-							{/if}
+							{/if} -->
 						</div>
 					</div>
 				{/each}
@@ -126,27 +106,31 @@
 	<section>
 		<h3>Personnel</h3>
 		<ul>
-			{#each data.release.personnel as { collaborator, role }}
+			{#if data.release.personnel}
+				{#each data.release.personnel as person}
+					<li>
+						<span class="bold">{person}</span>
+					</li>
+				{/each}
+			{:else}
 				<li>
-					{#if collaborator.link}
-						<a href={collaborator.link}><span class="bold">{collaborator.name}</span></a>
-					{:else}
-						<span class="bold">{collaborator.name}</span>
-					{/if} - {role}
+					<span class="bold">No personnel listed.</span>
 				</li>
-			{/each}
+			{/if}
 		</ul>
 		<h4>Tech</h4>
 		<ul>
-			{#each data.release.technicalCredits as { collaborator, role }}
+			{#if data.release.technicalCredits}
+				{#each data.release.technicalCredits as person}
+					<li>
+						<span class="bold">{person}</span>
+					</li>
+				{/each}
+			{:else}
 				<li>
-					{#if collaborator.link}
-						<a href={collaborator.link}><span class="bold">{collaborator.name}</span></a>
-					{:else}
-						<span class="bold">{collaborator.name}</span>
-					{/if} - {role}
+					<span class="bold">No technical credits listed.</span>
 				</li>
-			{/each}
+			{/if}
 		</ul>
 	</section>
 

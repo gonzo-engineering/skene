@@ -1,22 +1,30 @@
 import type { GigDetails } from '$lib/interfaces/gigs';
 import type { Release } from '$lib/interfaces/releases';
-import { artistDetails } from '../../data/info/artist';
+import { artistDetails } from '../../data/data';
+
+export const artistSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'MusicGroup',
+	name: artistDetails.name,
+	image: [],
+	url: artistDetails.websiteUrl,
+	sameAs: artistDetails.socialLinks
+};
 
 export const generateReleaseSchema = (release: Release) => {
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'MusicAlbum',
 		name: release.name,
-		description: release.description,
 		genre: 'Rock',
 		byArtist: {
 			'@type': 'MusicGroup',
 			name: artistDetails.name
 		},
-		image: `${artistDetails.websiteUrl}/artwork/${release.artwork.front}`,
+		image: `${artistDetails.websiteUrl}/artwork/${release.coverImage}`,
 		datePublished: release.releaseDate,
-		numTracks: release.tracks.length,
-		track: release.tracks.map((track) => ({
+		numTracks: release.songs.length,
+		track: release.songs.map((track) => ({
 			'@type': 'MusicRecording',
 			name: track.name,
 			duration: `PT${track.durationInSeconds}S`,
@@ -37,9 +45,9 @@ export const generateGigSchema = (gig: GigDetails) => {
 		location: {
 			'@type': 'MusicVenue',
 			name: gig.venue,
-			address: gig.address
+			address: gig.venueAddress
 		},
-		startDate: gig.dateTimeStart,
+		startDate: gig.dateTime,
 		url: gig.ticketLink
 	};
 };

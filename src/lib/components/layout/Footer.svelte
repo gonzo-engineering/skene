@@ -1,41 +1,39 @@
 <script lang="ts">
-	import { artistDetails } from '../../../data/info/artist';
+	import { artistDetails } from '../../../data/data';
 	import Icon from '../Icon.svelte';
 	import { icons } from '../../utils/icon-paths';
-
-	export let isAdminOrLoginPage: boolean;
 </script>
 
 <footer>
-	{#if !isAdminOrLoginPage}
-		<ul>
-			<li>
-				<a href={artistDetails.socialLinks.spotify}>
-					<Icon icon={icons.spotify} />
-				</a>
-			</li>
-			<li>
-				<a href={artistDetails.socialLinks.appleMusic}>
-					<Icon icon={icons.apple} />
-				</a>
-			</li>
-			<li>
-				<a href={artistDetails.socialLinks.instagram}>
-					<Icon icon={icons.instagram} />
-				</a>
-			</li>
-			<li>
-				<a href={artistDetails.socialLinks.youTube}>
-					<Icon icon={icons.youTube} />
-				</a>
-			</li>
-			<li>
-				<a href="/contact">
-					<Icon icon={icons.envelope} />
-				</a>
-			</li>
-		</ul>
-	{/if}
+	<ul>
+		{#if artistDetails.socialLinks && artistDetails.socialLinks.length > 0}
+			{#each artistDetails.socialLinks as link}
+				<li>
+					<a href={link}>
+						<!-- TODO: Add more icons -->
+						{#if link.includes('spotify.com')}
+							<Icon icon={icons.spotify} />
+						{:else if link.includes('bandcamp.com')}
+							<Icon icon={icons.bandcamp} />
+						{:else if link.includes('apple.com')}
+							<Icon icon={icons.apple} />
+						{:else if link.includes('youtube.com')}
+							<Icon icon={icons.youTube} />
+						{:else if link.includes('instagram.com')}
+							<Icon icon={icons.instagram} />
+						{:else}
+							<Icon icon={icons.externalLink} />
+						{/if}
+					</a>
+				</li>
+			{/each}
+		{/if}
+		<li>
+			<a href="/contact">
+				<Icon icon={icons.envelope} />
+			</a>
+		</li>
+	</ul>
 	<div>Powered by <a href="https://gonzo.engineering">Gonzo Engineering</a></div>
 </footer>
 

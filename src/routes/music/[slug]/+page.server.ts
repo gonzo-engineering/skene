@@ -1,4 +1,4 @@
-import { releases } from '../../../data/info/releases';
+import { releases } from '../../../data/data';
 
 export const load = ({ params }) => {
 	const matchingRelease = releases.find((release) => release.slug === params.slug);

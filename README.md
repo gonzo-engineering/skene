@@ -17,8 +17,6 @@ The idea with Skene that if essential info - artist details, releases, lyrics, g
 
 Think the [Neil Young Archives](https://neilyoungarchives.com/), but for everyone.
 
-## How?
+## Auth
 
-The working approach for this is to build an agnostic site template using [SvelteKit](https://svelte.dev). Dropping a handful of datasets into that template will generate a fully functioning website that just needs to be deployed somewhere.
-
-For now the form of this data is raw JSON and needs to be hardcoded. Ideally there would be a way for musicians to input this information more elegantly, but one step at a time.
+Skene is (currently) set up to use Netlify Identity so artists can log in and update their information. To set this up you need to enable it in the Netlify account that's deploying the site, enable Git Gateway, and invite whatever email addresses should have access.

@@ -1,0 +1,10 @@
+{
+  "name": "The Acmes",
+  "description": "A four-piece band from Neverland",
+  "email": "contact@examples-music.com",
+  "websiteUrl": "https://examples-music.com",
+  "storeUrl": "https://musicstore.com/the-examples",
+  "socialLinks": [
+    "https://x.com/examplesmusic"
+  ]
+}
