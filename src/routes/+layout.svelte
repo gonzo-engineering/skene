@@ -8,8 +8,6 @@
 	import type { Snippet } from 'svelte';
 
 	let { children }: { children?: Snippet } = $props();
-
-	const hasUpcomingGigs = gigs.some((gig) => new Date(gig.dateTime) > new Date());
 </script>
 
 <svelte:head>
@@ -22,7 +20,7 @@
 	{/if}
 </svelte:head>
 
-<Header {hasUpcomingGigs} />
+<Header />
 
 <main>
 	{@render children?.()}
