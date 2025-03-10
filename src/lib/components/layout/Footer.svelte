@@ -10,8 +10,20 @@
 			{#each artistDetails.socialLinks as link}
 				<li>
 					<a href={link}>
-						<!-- TODO: Use matching icon where possible -->
-						<Icon icon={icons.spotify} />
+						<!-- TODO: Add more icons -->
+						{#if link.includes('spotify.com')}
+							<Icon icon={icons.spotify} />
+						{:else if link.includes('bandcamp.com')}
+							<Icon icon={icons.bandcamp} />
+						{:else if link.includes('apple.com')}
+							<Icon icon={icons.apple} />
+						{:else if link.includes('youtube.com')}
+							<Icon icon={icons.youTube} />
+						{:else if link.includes('instagram.com')}
+							<Icon icon={icons.instagram} />
+						{:else}
+							<Icon icon={icons.externalLink} />
+						{/if}
 					</a>
 				</li>
 			{/each}
