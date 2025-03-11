@@ -1,0 +1,19 @@
+{
+  "isHiddenOnSite": false,
+  "slug": "eat-my-shorts",
+  "name": "Eat My Shorts",
+  "type": "EP",
+  "releaseDate": "2025-03-11T23:49:00.000Z",
+  "songs": [
+    {
+      "slug": "eatmyshorts"
+    },
+    {
+      "slug": "balding-blues"
+    },
+    {
+      "slug": "prettyprettygood"
+    }
+  ],
+  "coverImage": "/images/bart-simpsons-cartoon-editorial-298612141.jpg.webp"
+}

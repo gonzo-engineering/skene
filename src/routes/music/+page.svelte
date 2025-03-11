@@ -4,7 +4,6 @@
 	import { releases, songs } from '../../data/data';
 
 	let chosenReleaseType = $state('All');
-	
 
 	const lps = releases.filter((release) => release.type === 'LP');
 	const eps = releases.filter((release) => release.type === 'EP');
@@ -70,7 +69,7 @@
 				<div>
 					<a href={`music/${ep.slug}`}>
 						<div>
-							<ArtworkImage frontSrc={`/artwork/${ep.coverImage}`} name={ep.name} />
+							<ArtworkImage frontSrc={ep.coverImage} name={ep.name} />
 						</div>
 					</a>
 					<div style="margin-top: 1rem;">{ep.name}</div>
