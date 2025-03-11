@@ -54,6 +54,7 @@ collections:
     identifier_field: "name"
     format: "json"
     fields:
+      - {label: "Hide on site", name: "isHiddenOnSite", widget: "boolean", default: false, hint: "Check this box to prevent this release from being shown on the site."}
       - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Type", name: "type", widget: "select", options: ["LP", "EP", "Single"]}

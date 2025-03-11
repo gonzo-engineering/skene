@@ -1,4 +1,5 @@
 export interface Release {
+	isHiddenOnSite: boolean;
 	slug: string;
 	name: string;
 	type: 'LP' | 'EP';

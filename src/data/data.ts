@@ -42,6 +42,8 @@ for (const release in rawReleases) {
 			}
 			return track;
 		});
-		releases.push(release);
+		if (!release.isHiddenOnSite) {
+			releases.push(release);
+		}
 	}
 }
