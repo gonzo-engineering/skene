@@ -1,0 +1,17 @@
+{
+  "slug": "eatmyshorts",
+  "name": "Eat My Shorts! [explicit]",
+  "durationInSeconds": 240,
+  "singleDetails": {
+    "releaseDate": "04/17/2025",
+    "coverImage": "/images/bart-simpsons-cartoon-editorial-298612141.jpg.webp"
+  },
+  "songwritingCredits": [
+    "Bart Simpson",
+    "Lisa Simpson"
+  ],
+  "personnel": [
+    "Bart Simpson"
+  ],
+  "lyrics": "Eat my shorts yo!"
+}
