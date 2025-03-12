@@ -12,9 +12,15 @@ public_folder: /images
 logo_url: https://raw.githubusercontent.com/gonzo-engineering/dummy/refs/heads/main/docs/assets/dummy-logo.png
 
 collections:
-  - name: "artist"
-    label: "Artist"
+  - name: "admin"
+    label: "Admin"
     files:
+      - file: "src/data/info/site.json"
+        label: "Site"
+        name: "site"
+        fields: 
+          - {label: "Favicon", name: "favicon", widget: "image", required: false}
+          - {label: "Goat Counter ID", name: "goatCounterId", widget: "string", required: false}
       - file: "src/data/info/artist.json"
         label: "Artist"
         name: "artist"
@@ -22,11 +28,11 @@ collections:
           - {label: "Name", name: "name", widget: "string"}
           - {label: "Description", name: "description", widget: "text"}
           - {label: "Email", name: "email", widget: "string", required: false}
+          - {label: "Image", name: "image", widget: "image"}
           - {label: "Website URL", name: "websiteUrl", widget: "string"}
           - {label: "Store URL", name: "storeUrl", widget: "string", required: false}
           - {label: "Social Links", name: "socialLinks", widget: "list", field: {label: "Social Link", name: "socialLink", widget: "string"}}
           - {label: "Listening Links", name: "listeningLinks", widget: "list", field: {label: "Listening Link", name: "listeningLink", widget: "string"}}
-          - {label: "Goat Counter ID", name: "goatCounterId", widget: "string", required: false}
   - name: "songs"
     label: "Songs"
     folder: "src/data/music/songs"

@@ -30,7 +30,9 @@
 
 	<section>
 		<div class="about-grid">
-			<img src="/main-artist-image.jpg" alt={`Photo of ${artistDetails.name}`} loading="lazy" />
+			{#if artistDetails.image}
+				<img src={artistDetails.image} alt={`Image of ${artistDetails.name}`} loading="lazy" />
+			{/if}
 			<p>
 				{artistDetails.description}
 			</p>
