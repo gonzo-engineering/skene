@@ -12,9 +12,15 @@ public_folder: /images
 logo_url: https://raw.githubusercontent.com/gonzo-engineering/dummy/refs/heads/main/docs/assets/dummy-logo.png
 
 collections:
-  - name: "artist"
-    label: "Artist"
+  - name: "admin"
+    label: "Admin"
     files:
+      - file: "src/data/info/site.json"
+        label: "Site"
+        name: "site"
+        fields: 
+          - {label: "Favicon", name: "favicon", widget: "image", required: false}
+          - {label: "Goat Counter ID", name: "goatCounterId", widget: "string", required: false}
       - file: "src/data/info/artist.json"
         label: "Artist"
         name: "artist"
@@ -22,11 +28,11 @@ collections:
           - {label: "Name", name: "name", widget: "string"}
           - {label: "Description", name: "description", widget: "text"}
           - {label: "Email", name: "email", widget: "string", required: false}
+          - {label: "Image", name: "image", widget: "image"}
           - {label: "Website URL", name: "websiteUrl", widget: "string"}
           - {label: "Store URL", name: "storeUrl", widget: "string", required: false}
           - {label: "Social Links", name: "socialLinks", widget: "list", field: {label: "Social Link", name: "socialLink", widget: "string"}}
           - {label: "Listening Links", name: "listeningLinks", widget: "list", field: {label: "Listening Link", name: "listeningLink", widget: "string"}}
-          - {label: "Goat Counter ID", name: "goatCounterId", widget: "string", required: false}
   - name: "songs"
     label: "Songs"
     folder: "src/data/music/songs"
@@ -35,12 +41,12 @@ collections:
     identifier_field: "name"
     format: "json"
     fields:
-      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string", hint: "This will be used in the URL of the song page. E.g. 'yoursite.com/music/release-slug/**song-slug**'"}
       - {label: "Name", name: "name", widget: "string"}
       - {label: "Duration (in seconds)", name: "durationInSeconds", widget: "number"}
       - {label: "Single Details", name: "singleDetails", widget: "object", fields: [
-          {label: "Release Date", name: "releaseDate", widget: "datetime", format: "L"},
-          {label: "Cover Image", name: "coverImage", widget: "image"}
+          {label: "Release Date", name: "releaseDate", widget: "datetime", format: "L", required: false},
+          {label: "Cover Image", name: "coverImage", widget: "image", required: false}
         ], required: false}
       - {label: "Songwriting Credits", name: "songwritingCredits", widget: "list", field: {label: "Songwriting Credit", name: "songwritingCredit", widget: "string"}, required: false}
       - {label: "Personnel", name: "personnel", widget: "list", field: {label: "Person", name: "person", widget: "string"}, required: false}
@@ -54,14 +60,15 @@ collections:
     identifier_field: "name"
     format: "json"
     fields:
-      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Hide on site", name: "isHiddenOnSite", widget: "boolean", default: false, hint: "Check this box to prevent this release from being shown on the site."}
+      - {label: "Slug", name: "slug", widget: "string", hint: "This will be used in the URL of the release page. E.g. 'yoursite.com/music/**release-slug**'"}
       - {label: "Name", name: "name", widget: "string"}
-      - {label: "Type", name: "type", widget: "select", options: ["LP", "EP", "Single"]}
+      - {label: "Type", name: "type", widget: "select", options: ["LP", "EP"]}
       - {label: "Release Date", name: "releaseDate", widget: "datetime"}
       - {label: "Cover Image", name: "coverImage", widget: "image"}
       - {label: "Songs", name: "songs", widget: "list", fields: [
           {label: "Song", name: "slug", widget: "relation", collection: "songs", value_field: "slug", display_fields: ["name"], search_fields: ["name"]}
-        ]}
+        ], hint: "Add songs to this release by selecting them from the list above. Songs have to be created before they can be added to a release."}
   - name: "gigs"
     label: "Gigs"
     folder: "src/data/gigs"

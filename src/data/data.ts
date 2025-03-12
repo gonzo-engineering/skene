@@ -1,7 +1,12 @@
+import type { SiteDetails } from '$lib/interfaces/admin';
 import type { Artist } from '$lib/interfaces/artist';
 import type { GigDetails } from '$lib/interfaces/gigs';
 import type { Release, Track } from '$lib/interfaces/releases';
 import rawArtistDetails from './info/artist.json';
+import rawSiteDetails from './info/site.json';
+
+// Site details
+export const siteDetails: SiteDetails = rawSiteDetails;
 
 // Artist details
 export const artistDetails: Artist = rawArtistDetails;
@@ -42,6 +47,8 @@ for (const release in rawReleases) {
 			}
 			return track;
 		});
-		releases.push(release);
+		if (!release.isHiddenOnSite) {
+			releases.push(release);
+		}
 	}
 }

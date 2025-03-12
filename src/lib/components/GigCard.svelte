@@ -26,11 +26,13 @@
 				>Get directions</a
 			>)
 		</p>
-		<hr />
-		<p>
-			<a href={gig.ticketLink}>Buy tickets</a>
-			<Icon icon={icons.ticket} color="white" size={16} />
-		</p>
+		{#if gig.ticketLink}
+			<hr />
+			<p>
+				<a href={gig.ticketLink}>Buy tickets</a>
+				<Icon icon={icons.ticket} color="white" size={16} />
+			</p>
+		{/if}
 	{/if}
 </div>
 
