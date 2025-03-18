@@ -1,0 +1,13 @@
+{
+  "isHiddenOnSite": false,
+  "slug": "bigger-than-jesus",
+  "name": "Bigger Than Jesus",
+  "type": "LP",
+  "releaseDate": "1986-02-03T12:00:00.000Z",
+  "coverImage": "/images/bigger-than-jesus.jpg",
+  "songs": [
+    {
+      "slug": "baby-all-grown-up"
+    }
+  ]
+}

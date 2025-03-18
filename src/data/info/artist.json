@@ -1,11 +1,11 @@
 {
-  "name": "The Acmes",
-  "description": "A four-piece band from Neverland",
+  "name": "The Be Sharps",
+  "description": "The best thing to come out of Springfield since galoshes",
   "email": "contact@examples-music.com",
   "websiteUrl": "https://examples-music.com",
   "storeUrl": "https://musicstore.com/the-examples",
   "socialLinks": [
     "https://x.com/examplesmusic"
   ],
-  "image": "/images/main-artist-image.jpg"
+  "image": "/images/the-be-sharps.jpg"
 }

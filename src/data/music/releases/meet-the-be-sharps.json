@@ -1,0 +1,25 @@
+{
+  "isHiddenOnSite": false,
+  "slug": "meet-the-be-sharps",
+  "name": "Meet the Be Sharps",
+  "type": "LP",
+  "coverImage": "/images/meet-the-be-sharps.jpg",
+  "releaseDate": "1985-06-07T12:00:00.000Z",
+  "songs": [
+    {
+      "slug": "baby-on-board"
+    },
+    {
+      "slug": "mothers-draws"
+    },
+    {
+      "slug": "squishee-for-manjula"
+    },
+    {
+      "slug": "a-fortune-on-the-mens-room-floor"
+    },
+    {
+      "slug": "goodbye-my-coney-island-baby"
+    }
+  ]
+}
