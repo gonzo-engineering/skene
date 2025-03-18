@@ -25,27 +25,33 @@
 		>
 			All
 		</span>
-		<span
-			class={chosenReleaseType === 'LPs' ? 'active-toggle' : 'toggle'}
-			onclick={() => (chosenReleaseType = 'LPs')}
-		>
-			LPs ({lps.length})
-		</span>
-		<span
-			class={chosenReleaseType === 'EPs' ? 'active-toggle' : 'toggle'}
-			onclick={() => (chosenReleaseType = 'EPs')}
-		>
-			EPs ({eps.length})
-		</span>
-		<span
-			class={chosenReleaseType === 'Singles' ? 'active-toggle' : 'toggle'}
-			onclick={() => (chosenReleaseType = 'Singles')}
-		>
-			Singles ({singles.length})
-		</span>
+		{#if lps.length > 0}
+			<span
+				class={chosenReleaseType === 'LPs' ? 'active-toggle' : 'toggle'}
+				onclick={() => (chosenReleaseType = 'LPs')}
+			>
+				LPs ({lps.length})
+			</span>
+		{/if}
+		{#if eps.length > 0}
+			<span
+				class={chosenReleaseType === 'EPs' ? 'active-toggle' : 'toggle'}
+				onclick={() => (chosenReleaseType = 'EPs')}
+			>
+				EPs ({eps.length})
+			</span>
+		{/if}
+		{#if singles.length > 0}
+			<span
+				class={chosenReleaseType === 'Singles' ? 'active-toggle' : 'toggle'}
+				onclick={() => (chosenReleaseType = 'Singles')}
+			>
+				Singles ({singles.length})
+			</span>
+		{/if}
 	</div>
 
-	{#if chosenReleaseType === 'LPs' || chosenReleaseType === 'All'}
+	{#if chosenReleaseType === 'LPs' || (chosenReleaseType === 'All' && lps.length > 0)}
 		<h3>LPs</h3>
 		<div class="row">
 			{#each lps as lp}
@@ -62,7 +68,7 @@
 		</div>
 	{/if}
 
-	{#if chosenReleaseType === 'EPs' || chosenReleaseType === 'All'}
+	{#if chosenReleaseType === 'EPs' || (chosenReleaseType === 'All' && eps.length > 0)}
 		<h3>EPs</h3>
 		<div class="row">
 			{#each eps as ep}
@@ -79,7 +85,7 @@
 		</div>
 	{/if}
 
-	{#if chosenReleaseType === 'Singles' || chosenReleaseType === 'All'}
+	{#if chosenReleaseType === 'Singles' || (chosenReleaseType === 'All' && singles.length > 0)}
 		<h3>Singles</h3>
 		<div class="row">
 			{#each releases.sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()) as release}
