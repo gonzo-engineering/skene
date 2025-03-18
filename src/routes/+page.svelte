@@ -33,9 +33,12 @@
 			{#if artistDetails.image}
 				<img src={artistDetails.image} alt={`Image of ${artistDetails.name}`} loading="lazy" />
 			{/if}
-			<p>
-				{artistDetails.description}
-			</p>
+			<div class="artist-description">
+				<h3>{artistDetails.name}</h3>
+				<p>
+					{artistDetails.description}
+				</p>
+			</div>
 		</div>
 	</section>
 
@@ -63,7 +66,15 @@
 	}
 	.about-grid p {
 		text-align: left;
-		font-weight: 500;
+		font-weight: 300;
+	}
+	.artist-description {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	h3 {
+		text-align: left;
 	}
 	@media (min-width: 768px) {
 		.about-grid {
