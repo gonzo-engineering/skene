@@ -9,7 +9,7 @@ backend:
 media_folder: static/images
 public_folder: /images
 
-logo_url: https://raw.githubusercontent.com/gonzo-engineering/dummy/refs/heads/main/docs/assets/dummy-logo.png
+logo_url: https://avatars.githubusercontent.com/u/173496896
 
 collections:
   - name: "admin"
