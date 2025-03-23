@@ -2,6 +2,7 @@ export interface Release {
 	isHiddenOnSite: boolean;
 	slug: string;
 	name: string;
+	description?: string;
 	type: 'LP' | 'EP';
 	releaseDate: string;
 	coverImage: string;

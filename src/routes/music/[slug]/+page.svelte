@@ -22,6 +22,7 @@
 
 	const {
 		name,
+		description,
 		type,
 		slug,
 		releaseDate,
@@ -58,6 +59,12 @@
 		<ReleaseListeningLinks {listeningLinks} />
 		<Button link={purchaseLink} label="Buy" />
 	</section> -->
+
+	{#if description}
+		<section>
+			<p class="description">{description}</p>
+		</section>
+	{/if}
 
 	<section>
 		<!-- <div class="places-recorded">

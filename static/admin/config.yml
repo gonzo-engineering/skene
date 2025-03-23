@@ -63,6 +63,7 @@ collections:
       - {label: "Hide on site", name: "isHiddenOnSite", widget: "boolean", default: false, hint: "Check this box to prevent this release from being shown on the site."}
       - {label: "Slug", name: "slug", widget: "string", hint: "This will be used in the URL of the release page. E.g. 'yoursite.com/music/**release-slug**'"}
       - {label: "Name", name: "name", widget: "string"}
+      - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Type", name: "type", widget: "select", options: ["LP", "EP"]}
       - {label: "Release Date", name: "releaseDate", widget: "datetime"}
       - {label: "Cover Image", name: "coverImage", widget: "image"}
