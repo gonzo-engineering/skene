@@ -1,10 +1,36 @@
 {
-  "isHiddenOnSite": false,
-  "slug": "bigger-than-jesus",
+  "personnel": [
+    {
+      "name": "Homer Simpson",
+      "credit": "Baritone"
+    },
+    {
+      "name": "Apu Nahasapeemapetilon",
+      "credit": "Tenor"
+    },
+    {
+      "name": "Seymour Skinner",
+      "credit": "Bass"
+    },
+    {
+      "name": "Barney Gumble",
+      "credit": "Lead"
+    }
+  ],
+  "otherImages": [
+    {
+      "image": "/images/number-8.png",
+      "altText": "The Be Sharps in studio listening to 'Number 8'"
+    }
+  ],
   "name": "Bigger Than Jesus",
-  "type": "LP",
+  "slug": "bigger-than-jesus",
+  "artwork": {
+    "front": "/images/bigger-than-jesus.jpg"
+  },
   "releaseDate": "1986-02-03T12:00:00.000Z",
-  "coverImage": "/images/bigger-than-jesus.jpg",
+  "isHiddenOnSite": false,
+  "type": "LP",
   "songs": [
     {
       "slug": "baby-all-grown-up"

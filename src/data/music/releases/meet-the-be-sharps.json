@@ -1,10 +1,47 @@
 {
-  "isHiddenOnSite": false,
-  "slug": "meet-the-be-sharps",
+  "personnel": [
+    {
+      "name": "Homer Simpson",
+      "credit": "Baritone"
+    },
+    {
+      "name": "Apu Nahasapeemapetilon",
+      "credit": "Tenor"
+    },
+    {
+      "name": "Seymour Skinner",
+      "credit": "Bass"
+    },
+    {
+      "name": "Barney Gumble",
+      "credit": "Lead"
+    }
+  ],
+  "otherImages": [
+    {
+      "image": "/images/recording-baby-on-board.webp",
+      "altText": "The Be Sharps recording 'Baby on Board'"
+    },
+    {
+      "image": "/images/statue-of-liberty.jpg",
+      "altText": "The Be Sharps in front of the Statue of Liberty"
+    }
+  ],
   "name": "Meet the Be Sharps",
-  "type": "LP",
-  "coverImage": "/images/meet-the-be-sharps.jpg",
+  "slug": "meet-the-be-sharps",
+  "artwork": {
+    "front": "/images/meet-the-be-sharps.jpg",
+    "credits": [
+      {
+        "name": "Andy Warhol",
+        "credit": "Artwork"
+      }
+    ]
+  },
   "releaseDate": "1985-06-07T12:00:00.000Z",
+  "isHiddenOnSite": false,
+  "type": "LP",
+  "purchaseLink": "https://example.com",
   "songs": [
     {
       "slug": "baby-on-board"
@@ -21,5 +58,9 @@
     {
       "slug": "goodbye-my-coney-island-baby"
     }
+  ],
+  "listeningLinks": [
+    "https://music.apple.com/us/album/the-simpsons-sing-the-blues/1443617811",
+    "https://open.spotify.com/album/4WlSOf1bNcn2Lrr3R4XrDE"
   ]
 }

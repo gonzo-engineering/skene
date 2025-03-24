@@ -23,7 +23,7 @@
 <div class="container">
 	<div class="card-image">
 		<a href={`/music/${release.slug}`}>
-			<ArtworkImage frontSrc={release.coverImage} name={release.name} />
+			<ArtworkImage frontSrc={release.artwork.front} name={release.name} />
 		</a>
 	</div>
 	<div class="disc">

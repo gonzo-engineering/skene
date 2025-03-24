@@ -22,10 +22,13 @@
 
 	const {
 		name,
+		description,
 		type,
 		slug,
 		releaseDate,
-		coverImage,
+		artwork,
+		personnel,
+		recordedAt,
 		listeningLinks,
 		songs,
 		otherImages,
@@ -51,26 +54,42 @@
 	<ReleaseHeader {name} {type} {releaseDate} />
 
 	<section>
-		<ArtworkImage frontSrc={coverImage} {name} />
+		<ArtworkImage
+			{name}
+			frontSrc={artwork.front}
+			caption={artwork.credits ? makeArtworkCredit(artwork.credits) : ''}
+		/>
 	</section>
-
-	<!-- <section>
-		<ReleaseListeningLinks {listeningLinks} />
-		<Button link={purchaseLink} label="Buy" />
-	</section> -->
 
 	<section>
-		<!-- <div class="places-recorded">
-			Recorded at
-			{#each recordedAt as studio, i}
-				{#if studio.link}
-					<a href={studio.link}>{studio.name}</a>{#if i < recordedAt.length - 1},&nbsp;{/if}
-				{:else}
-					{studio.name}{#if i < recordedAt.length - 1},&nbsp;{/if}
-				{/if}
-			{/each}
-		</div> -->
+		{#if listeningLinks && listeningLinks.length > 0}
+			<ReleaseListeningLinks {listeningLinks} />
+		{/if}
+		{#if purchaseLink}
+			<Button link={purchaseLink} label="Buy" />
+		{/if}
 	</section>
+
+	{#if description}
+		<section>
+			<p class="description">{description}</p>
+		</section>
+	{/if}
+
+	{#if recordedAt && recordedAt.length > 0}
+		<section>
+			<div class="places-recorded">
+				Recorded at
+				{#each recordedAt as studio, i}
+					{#if studio.link}
+						<a href={studio.link}>{studio.name}</a>{#if i < recordedAt.length - 1},&nbsp;{/if}
+					{:else}
+						{studio.name}{#if i < recordedAt.length - 1},&nbsp;{/if}
+					{/if}
+				{/each}
+			</div>
+		</section>
+	{/if}
 
 	<section>
 		<h3>Tracks</h3>
@@ -110,36 +129,22 @@
 		</section>
 	{/if}
 
-	<section>
-		<h3>Personnel</h3>
-		<ul>
-			{#if data.release.personnel}
-				{#each data.release.personnel as person}
+	{#if personnel}
+		<section>
+			<h3>Personnel</h3>
+			<ul>
+				{#each personnel as { name, link, credit }}
 					<li>
-						<span class="bold">{person}</span>
+						{#if link}
+							<a href={link}><span class="bold">{name}</span></a>
+						{:else}
+							<span class="bold">{name}</span>
+						{/if} - {credit}
 					</li>
 				{/each}
-			{:else}
-				<li>
-					<span class="bold">No personnel listed.</span>
-				</li>
-			{/if}
-		</ul>
-		<h4>Tech</h4>
-		<ul>
-			{#if data.release.technicalCredits}
-				{#each data.release.technicalCredits as person}
-					<li>
-						<span class="bold">{person}</span>
-					</li>
-				{/each}
-			{:else}
-				<li>
-					<span class="bold">No technical credits listed.</span>
-				</li>
-			{/if}
-		</ul>
-	</section>
+			</ul>
+		</section>
+	{/if}
 
 	{#if youTubeVidIds && youTubeVidIds.length > 0}
 		<section>

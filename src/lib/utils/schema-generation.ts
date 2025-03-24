@@ -21,7 +21,7 @@ export const generateReleaseSchema = (release: Release) => {
 			'@type': 'MusicGroup',
 			name: artistDetails.name
 		},
-		image: `${artistDetails.websiteUrl}/artwork/${release.coverImage}`,
+		image: `${artistDetails.websiteUrl}/artwork/${release.artwork.front}`,
 		datePublished: release.releaseDate,
 		numTracks: release.songs.length,
 		track: release.songs.map((track) => ({

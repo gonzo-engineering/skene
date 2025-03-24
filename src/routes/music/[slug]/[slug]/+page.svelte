@@ -43,6 +43,9 @@
 			{data.track.singleDetails ? `Single #${inferNthSingle(data.track)} from` : 'From'}
 			<a href={`/music/${data.parentRelease.slug}`}>{data.parentRelease.name}</a>
 		</div>
+		{#if data.track.songwritingCredits}
+			<div>Written by {data.track.songwritingCredits}</div>
+		{/if}
 	</div>
 
 	{#if data.track.singleDetails}

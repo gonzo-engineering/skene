@@ -3,7 +3,6 @@
 	import { releases, songs } from '../../data/data';
 
 	let setting = $state('all');
-	
 
 	const allTracksWithParentSlug = releases
 		.flatMap((release) => {
@@ -24,12 +23,21 @@
 <div class="container">
 	<h2>Lyrics</h2>
 	<div class="options">
-		<div class={setting === 'all' ? 'active-option' : ''} onclick={() => (setting = 'all')}>
+		<div
+			class={setting === 'all' ? 'active-option' : ''}
+			onclick={() => (setting = 'all')}
+			onkeydown={() => (setting = 'all')}
+			tabindex="0"
+			role="button"
+		>
 			All
 		</div>
 		<div
 			class={setting === 'releases' ? 'active-option' : ''}
 			onclick={() => (setting = 'releases')}
+			onkeydown={() => (setting = 'releases')}
+			tabindex="0"
+			role="button"
 		>
 			By release
 		</div>

@@ -1,6 +1,7 @@
 import type { SiteDetails } from '$lib/interfaces/admin';
 import type { Artist } from '$lib/interfaces/artist';
 import type { GigDetails } from '$lib/interfaces/gigs';
+import type { PersonDetails } from '$lib/interfaces/people';
 import type { Release, Track } from '$lib/interfaces/releases';
 import rawArtistDetails from './info/artist.json';
 import rawSiteDetails from './info/site.json';
@@ -19,6 +20,17 @@ for (const gig in rawGigs) {
 	if (file && typeof file === 'object' && 'default' in file) {
 		const gig = file.default as GigDetails;
 		gigs.push(gig);
+	}
+}
+
+// People
+const people: PersonDetails[] = [];
+const rawPeople = import.meta.glob('./people/*.json', { eager: true });
+for (const person in rawPeople) {
+	const file = rawPeople[person];
+	if (file && typeof file === 'object' && 'default' in file) {
+		const person = file.default as PersonDetails;
+		people.push(person);
 	}
 }
 
@@ -47,6 +59,28 @@ for (const release in rawReleases) {
 			}
 			return track;
 		});
+		release.personnel = release.personnel?.map((credit) => {
+			const collaborator = people.find((c) => c.name === credit.name);
+			if (collaborator) {
+				return {
+					...credit,
+					link: collaborator.link
+				};
+			}
+			return credit;
+		});
+		if (release.artwork.credits) {
+			release.artwork.credits = release.artwork.credits.map((credit) => {
+				const person = people.find((c) => c.name === credit.name);
+				if (person) {
+					return {
+						...credit,
+						link: person.link
+					};
+				}
+				return credit;
+			});
+		}
 		if (!release.isHiddenOnSite) {
 			releases.push(release);
 		}
