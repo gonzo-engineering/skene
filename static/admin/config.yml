@@ -48,7 +48,7 @@ collections:
           {label: "Release Date", name: "releaseDate", widget: "datetime", format: "L", required: false},
           {label: "Cover Image", name: "coverImage", widget: "image", required: false}
         ], required: false}
-      - {label: "Songwriting Credits", name: "songwritingCredits", widget: "list", field: {label: "Songwriting Credit", name: "songwritingCredit", widget: "string"}, required: false}
+      - {label: "Songwriting Credits", name: "songwritingCredits", widget: "list", field: {label: "Person", name: "person", widget: "relation", collection: "people", value_field: "name", display_fields: ["name"], search_fields: ["name"]}, required: false}
       - {label: "Personnel", name: "personnel", widget: "list", field: {label: "Person", name: "person", widget: "string"}, required: false}
       - {label: "YouTube Video ID", name: "youTubeVidId", widget: "string", required: false}
       - {label: "Lyrics", name: "lyrics", widget: "markdown", required: false}      

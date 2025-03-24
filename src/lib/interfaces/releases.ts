@@ -32,7 +32,7 @@ export type ListeningLink = {
 export interface Track {
 	slug: string;
 	name: string;
-	songwritingCredits?: string[];
+	songwritingCredits?: PersonDetails[];
 	durationInSeconds: number;
 	lyrics?: string;
 	personnel: string[];
