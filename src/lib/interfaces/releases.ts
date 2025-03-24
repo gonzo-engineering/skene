@@ -8,6 +8,10 @@ export interface Release {
 	type: 'LP' | 'EP';
 	releaseDate: string;
 	coverImage: string;
+	recordedAt?: {
+		name: string;
+		link?: string;
+	}[];
 	personnel?: PersonDetails[];
 	technicalCredits?: string[];
 	songs: Track[];

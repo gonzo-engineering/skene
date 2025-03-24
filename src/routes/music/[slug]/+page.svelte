@@ -27,6 +27,8 @@
 		slug,
 		releaseDate,
 		coverImage,
+		personnel,
+		recordedAt,
 		listeningLinks,
 		songs,
 		otherImages,
@@ -70,18 +72,20 @@
 		</section>
 	{/if}
 
-	<section>
-		<!-- <div class="places-recorded">
-			Recorded at
-			{#each recordedAt as studio, i}
-				{#if studio.link}
-					<a href={studio.link}>{studio.name}</a>{#if i < recordedAt.length - 1},&nbsp;{/if}
-				{:else}
-					{studio.name}{#if i < recordedAt.length - 1},&nbsp;{/if}
-				{/if}
-			{/each}
-		</div> -->
-	</section>
+	{#if recordedAt && recordedAt.length > 0}
+		<section>
+			<div class="places-recorded">
+				Recorded at
+				{#each recordedAt as studio, i}
+					{#if studio.link}
+						<a href={studio.link}>{studio.name}</a>{#if i < recordedAt.length - 1},&nbsp;{/if}
+					{:else}
+						{studio.name}{#if i < recordedAt.length - 1},&nbsp;{/if}
+					{/if}
+				{/each}
+			</div>
+		</section>
+	{/if}
 
 	<section>
 		<h3>Tracks</h3>
@@ -121,11 +125,11 @@
 		</section>
 	{/if}
 
-	{#if data.release.personnel}
+	{#if personnel}
 		<section>
 			<h3>Personnel</h3>
 			<ul>
-				{#each data.release.personnel as { name, link, credit }}
+				{#each personnel as { name, link, credit }}
 					<li>
 						{#if link}
 							<a href={link}><span class="bold">{name}</span></a>
