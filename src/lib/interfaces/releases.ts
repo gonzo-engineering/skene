@@ -21,7 +21,10 @@ export interface Release {
 	songs: Track[];
 	purchaseLink?: string;
 	listeningLinks?: string[];
-	otherImages?: string[];
+	otherImages?: {
+		image: string;
+		altText: string;
+	}[];
 }
 
 export type ListeningLink = {

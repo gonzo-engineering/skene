@@ -18,7 +18,10 @@
     }
   ],
   "otherImages": [
-    "/images/number-8.png"
+    {
+      "image": "/images/number-8.png",
+      "altText": "The Be Sharps in studio listening to 'Number 8'"
+    }
   ],
   "name": "Bigger Than Jesus",
   "slug": "bigger-than-jesus",

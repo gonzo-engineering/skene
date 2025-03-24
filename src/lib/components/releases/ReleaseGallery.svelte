@@ -1,12 +1,19 @@
 <script lang="ts">
-	let { images }: { images: string[] } = $props();
+	let {
+		images
+	}: {
+		images: {
+			image: string;
+			altText: string;
+		}[];
+	} = $props();
 </script>
 
 <h3>Gallery</h3>
 <div class="gallery">
 	{#each images as image}
 		<div class="polaroid">
-			<img src={image} alt="Artwork" loading="lazy" />
+			<img src={image.image} alt={image.altText} loading="lazy" />
 		</div>
 	{/each}
 </div>

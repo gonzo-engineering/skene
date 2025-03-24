@@ -87,7 +87,10 @@ collections:
       - {label: "Songs", name: "songs", widget: "list", fields: [
           {label: "Song", name: "slug", widget: "relation", collection: "songs", value_field: "slug", display_fields: ["name"], search_fields: ["name"]}
         ], hint: "Add songs to this release by selecting them from the list above. Songs have to be created before they can be added to a release."}
-      - {label: "Other Images", name: "otherImages", widget: "list", field: {label: "Image", name: "image", widget: "image"}, required: false}
+      - {label: "Other Images", name: "otherImages", widget: "list", fields: [
+          {label: "Image", name: "image", widget: "image"},
+          {label: "Alt Text", name: "altText", widget: "string"}
+        ], required: false}
   - name: "gigs"
     label: "Gigs"
     folder: "src/data/gigs"

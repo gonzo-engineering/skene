@@ -18,8 +18,14 @@
     }
   ],
   "otherImages": [
-    "/images/recording-baby-on-board.webp",
-    "/images/statue-of-liberty.jpg"
+    {
+      "image": "/images/recording-baby-on-board.webp",
+      "altText": "The Be Sharps recording 'Baby on Board'"
+    },
+    {
+      "image": "/images/statue-of-liberty.jpg",
+      "altText": "The Be Sharps in front of the Statue of Liberty"
+    }
   ],
   "name": "Meet the Be Sharps",
   "slug": "meet-the-be-sharps",
