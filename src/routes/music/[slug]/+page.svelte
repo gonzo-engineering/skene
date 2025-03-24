@@ -117,36 +117,22 @@
 		</section>
 	{/if}
 
-	<section>
-		<h3>Personnel</h3>
-		<ul>
-			{#if data.release.personnel}
-				{#each data.release.personnel as person}
+	{#if data.release.personnel}
+		<section>
+			<h3>Personnel</h3>
+			<ul>
+				{#each data.release.personnel as { name, link, credit }}
 					<li>
-						<span class="bold">{person}</span>
+						{#if link}
+							<a href={link}><span class="bold">{name}</span></a>
+						{:else}
+							<span class="bold">{name}</span>
+						{/if} - {credit}
 					</li>
 				{/each}
-			{:else}
-				<li>
-					<span class="bold">No personnel listed.</span>
-				</li>
-			{/if}
-		</ul>
-		<h4>Tech</h4>
-		<ul>
-			{#if data.release.technicalCredits}
-				{#each data.release.technicalCredits as person}
-					<li>
-						<span class="bold">{person}</span>
-					</li>
-				{/each}
-			{:else}
-				<li>
-					<span class="bold">No technical credits listed.</span>
-				</li>
-			{/if}
-		</ul>
-	</section>
+			</ul>
+		</section>
+	{/if}
 
 	{#if youTubeVidIds && youTubeVidIds.length > 0}
 		<section>

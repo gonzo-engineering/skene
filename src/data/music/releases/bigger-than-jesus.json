@@ -9,5 +9,23 @@
     {
       "slug": "baby-all-grown-up"
     }
+  ],
+  "personnel": [
+    {
+      "name": "Homer Simpson",
+      "credit": "Baritone"
+    },
+    {
+      "name": "Apu Nahasapeemapetilon",
+      "credit": "Tenor"
+    },
+    {
+      "name": "Seymour Skinner",
+      "credit": "Bass"
+    },
+    {
+      "name": "Barney Gumble",
+      "credit": "Lead"
+    }
   ]
 }

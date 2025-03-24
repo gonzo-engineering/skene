@@ -21,5 +21,23 @@
     {
       "slug": "goodbye-my-coney-island-baby"
     }
+  ],
+  "personnel": [
+    {
+      "name": "Homer Simpson",
+      "credit": "Baritone"
+    },
+    {
+      "name": "Apu Nahasapeemapetilon",
+      "credit": "Tenor"
+    },
+    {
+      "name": "Seymour Skinner",
+      "credit": "Bass"
+    },
+    {
+      "name": "Barney Gumble",
+      "credit": "Lead"
+    }
   ]
 }

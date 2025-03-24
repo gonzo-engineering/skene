@@ -67,6 +67,10 @@ collections:
       - {label: "Type", name: "type", widget: "select", options: ["LP", "EP"]}
       - {label: "Release Date", name: "releaseDate", widget: "datetime"}
       - {label: "Cover Image", name: "coverImage", widget: "image"}
+      - {label: "Personnel", name: "personnel", widget: "list", fields: [
+          {label: "Person", name: "name", widget: "relation", collection: "people", value_field: "name", display_fields: ["name"], search_fields: ["name"]},
+          {label: "Credit", name: "credit", widget: "string"}
+        ], required: false}
       - {label: "Songs", name: "songs", widget: "list", fields: [
           {label: "Song", name: "slug", widget: "relation", collection: "songs", value_field: "slug", display_fields: ["name"], search_fields: ["name"]}
         ], hint: "Add songs to this release by selecting them from the list above. Songs have to be created before they can be added to a release."}
@@ -82,3 +86,13 @@ collections:
       - {label: "Venue", name: "venue", widget: "string"}
       - {label: "Venue Address", name: "venueAddress", widget: "string"}
       - {label: "Ticket Link", name: "ticketLink", widget: "string", required: false}
+  - name: "people"
+    label: "People"
+    folder: "src/data/people"
+    create: true
+    slug: "{{fields.name}}"
+    identifier_field: "name"
+    format: "json"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Link", name: "link", widget: "string", required: false}

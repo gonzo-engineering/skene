@@ -1,3 +1,5 @@
+import type { PersonDetails } from './people';
+
 export interface Release {
 	isHiddenOnSite: boolean;
 	slug: string;
@@ -6,7 +8,7 @@ export interface Release {
 	type: 'LP' | 'EP';
 	releaseDate: string;
 	coverImage: string;
-	personnel?: string[];
+	personnel?: PersonDetails[];
 	technicalCredits?: string[];
 	songs: Track[];
 	purchaseLink?: string;
