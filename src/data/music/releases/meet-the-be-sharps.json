@@ -17,6 +17,10 @@
       "credit": "Lead"
     }
   ],
+  "otherImages": [
+    "/images/recording-baby-on-board.webp",
+    "/images/statue-of-liberty.jpg"
+  ],
   "name": "Meet the Be Sharps",
   "slug": "meet-the-be-sharps",
   "artwork": {
