@@ -66,7 +66,14 @@ collections:
       - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Type", name: "type", widget: "select", options: ["LP", "EP"]}
       - {label: "Release Date", name: "releaseDate", widget: "datetime"}
-      - {label: "Cover Image", name: "coverImage", widget: "image"}
+      - {label: "Artwork", name: "artwork", widget: "object", fields: [
+          {label: "Front", name: "front", widget: "image"},
+          {label: "Back", name: "back", widget: "image", required: false},
+          {label: "Artwork credit(s)", name: "credits", widget: "list", fields: [
+          {label: "Person", name: "name", widget: "relation", collection: "people", value_field: "name", display_fields: ["name"], search_fields: ["name"]},
+          {label: "Credit", name: "credit", widget: "string"}
+      ], required: false}
+        ]}
       - {label: "Recorded At", name: "recordedAt", widget: "list", fields: [
           {label: "Name", name: "name", widget: "string"},
           {label: "Link", name: "link", widget: "string", required: false}

@@ -26,7 +26,7 @@
 		type,
 		slug,
 		releaseDate,
-		coverImage,
+		artwork,
 		personnel,
 		recordedAt,
 		listeningLinks,
@@ -54,7 +54,11 @@
 	<ReleaseHeader {name} {type} {releaseDate} />
 
 	<section>
-		<ArtworkImage frontSrc={coverImage} {name} />
+		<ArtworkImage
+			{name}
+			frontSrc={artwork.front}
+			caption={artwork.credits ? makeArtworkCredit(artwork.credits) : ''}
+		/>
 	</section>
 
 	<section>

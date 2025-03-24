@@ -22,6 +22,9 @@
 		<span
 			class={chosenReleaseType === 'All' ? 'active-toggle' : 'toggle'}
 			onclick={() => (chosenReleaseType = 'All')}
+			onkeydown={() => (chosenReleaseType = 'All')}
+			tabindex="0"
+			role="button"
 		>
 			All
 		</span>
@@ -29,6 +32,9 @@
 			<span
 				class={chosenReleaseType === 'LPs' ? 'active-toggle' : 'toggle'}
 				onclick={() => (chosenReleaseType = 'LPs')}
+				onkeydown={() => (chosenReleaseType = 'LPs')}
+				tabindex="0"
+				role="button"
 			>
 				LPs ({lps.length})
 			</span>
@@ -37,6 +43,9 @@
 			<span
 				class={chosenReleaseType === 'EPs' ? 'active-toggle' : 'toggle'}
 				onclick={() => (chosenReleaseType = 'EPs')}
+				onkeydown={() => (chosenReleaseType = 'EPs')}
+				tabindex="0"
+				role="button"
 			>
 				EPs ({eps.length})
 			</span>
@@ -45,6 +54,9 @@
 			<span
 				class={chosenReleaseType === 'Singles' ? 'active-toggle' : 'toggle'}
 				onclick={() => (chosenReleaseType = 'Singles')}
+				onkeydown={() => (chosenReleaseType = 'Singles')}
+				tabindex="0"
+				role="button"
 			>
 				Singles ({singles.length})
 			</span>
@@ -58,7 +70,7 @@
 				<div>
 					<a href={`music/${lp.slug}`}>
 						<div>
-							<ArtworkImage frontSrc={lp.coverImage} name={lp.name} />
+							<ArtworkImage frontSrc={lp.artwork.front} name={lp.name} />
 						</div>
 					</a>
 					<div style="margin-top: 1rem;">{lp.name}</div>
@@ -75,7 +87,7 @@
 				<div>
 					<a href={`music/${ep.slug}`}>
 						<div>
-							<ArtworkImage frontSrc={ep.coverImage} name={ep.name} />
+							<ArtworkImage frontSrc={ep.artwork.front} name={ep.name} />
 						</div>
 					</a>
 					<div style="margin-top: 1rem;">{ep.name}</div>

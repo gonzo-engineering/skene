@@ -1,27 +1,4 @@
 {
-  "isHiddenOnSite": false,
-  "slug": "meet-the-be-sharps",
-  "name": "Meet the Be Sharps",
-  "type": "LP",
-  "coverImage": "/images/meet-the-be-sharps.jpg",
-  "releaseDate": "1985-06-07T12:00:00.000Z",
-  "songs": [
-    {
-      "slug": "baby-on-board"
-    },
-    {
-      "slug": "mothers-draws"
-    },
-    {
-      "slug": "squishee-for-manjula"
-    },
-    {
-      "slug": "a-fortune-on-the-mens-room-floor"
-    },
-    {
-      "slug": "goodbye-my-coney-island-baby"
-    }
-  ],
   "personnel": [
     {
       "name": "Homer Simpson",
@@ -38,6 +15,38 @@
     {
       "name": "Barney Gumble",
       "credit": "Lead"
+    }
+  ],
+  "name": "Meet the Be Sharps",
+  "slug": "meet-the-be-sharps",
+  "artwork": {
+    "front": "/images/meet-the-be-sharps.jpg",
+    "credits": [
+      {
+        "name": "Andy Warhol",
+        "credit": "Artwork"
+      }
+    ]
+  },
+  "releaseDate": "1985-06-07T12:00:00.000Z",
+  "isHiddenOnSite": false,
+  "type": "LP",
+  "purchaseLink": "https://example.com",
+  "songs": [
+    {
+      "slug": "baby-on-board"
+    },
+    {
+      "slug": "mothers-draws"
+    },
+    {
+      "slug": "squishee-for-manjula"
+    },
+    {
+      "slug": "a-fortune-on-the-mens-room-floor"
+    },
+    {
+      "slug": "goodbye-my-coney-island-baby"
     }
   ]
 }

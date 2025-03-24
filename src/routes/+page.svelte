@@ -24,7 +24,6 @@
 			discType="Vinyl"
 		/>
 	{/if}
-	<section></section>
 
 	<Divider />
 

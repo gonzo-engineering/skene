@@ -7,7 +7,11 @@ export interface Release {
 	description?: string;
 	type: 'LP' | 'EP';
 	releaseDate: string;
-	coverImage: string;
+	artwork: {
+		front: string;
+		back?: string;
+		credits?: PersonDetails[];
+	};
 	recordedAt?: {
 		name: string;
 		link?: string;
@@ -19,12 +23,6 @@ export interface Release {
 	listeningLinks?: string[];
 	otherImages?: string[];
 }
-
-type ArtworkDetails = {
-	front: string;
-	back?: string;
-	credits: string[];
-};
 
 export type ListeningLink = {
 	name: string;

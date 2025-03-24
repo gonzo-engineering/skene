@@ -69,6 +69,18 @@ for (const release in rawReleases) {
 			}
 			return credit;
 		});
+		if (release.artwork.credits) {
+			release.artwork.credits = release.artwork.credits.map((credit) => {
+				const person = people.find((c) => c.name === credit.name);
+				if (person) {
+					return {
+						...credit,
+						link: person.link
+					};
+				}
+				return credit;
+			});
+		}
 		if (!release.isHiddenOnSite) {
 			releases.push(release);
 		}

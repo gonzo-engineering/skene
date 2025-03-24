@@ -1,15 +1,4 @@
 {
-  "isHiddenOnSite": false,
-  "slug": "bigger-than-jesus",
-  "name": "Bigger Than Jesus",
-  "type": "LP",
-  "releaseDate": "1986-02-03T12:00:00.000Z",
-  "coverImage": "/images/bigger-than-jesus.jpg",
-  "songs": [
-    {
-      "slug": "baby-all-grown-up"
-    }
-  ],
   "personnel": [
     {
       "name": "Homer Simpson",
@@ -26,6 +15,19 @@
     {
       "name": "Barney Gumble",
       "credit": "Lead"
+    }
+  ],
+  "name": "Bigger Than Jesus",
+  "slug": "bigger-than-jesus",
+  "artwork": {
+    "front": "/images/bigger-than-jesus.jpg"
+  },
+  "releaseDate": "1986-02-03T12:00:00.000Z",
+  "isHiddenOnSite": false,
+  "type": "LP",
+  "songs": [
+    {
+      "slug": "baby-all-grown-up"
     }
   ]
 }
