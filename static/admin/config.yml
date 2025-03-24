@@ -71,6 +71,8 @@ collections:
           {label: "Person", name: "name", widget: "relation", collection: "people", value_field: "name", display_fields: ["name"], search_fields: ["name"]},
           {label: "Credit", name: "credit", widget: "string"}
         ], required: false}
+      - {label: "Purchase Link", name: "purchaseLink", widget: "string", required: false}
+      - {label: "Listening Links", name: "listeningLinks", widget: "list", field: {label: "Listening Link", name: "listeningLink", widget: "string"}, required: false}
       - {label: "Songs", name: "songs", widget: "list", fields: [
           {label: "Song", name: "slug", widget: "relation", collection: "songs", value_field: "slug", display_fields: ["name"], search_fields: ["name"]}
         ], hint: "Add songs to this release by selecting them from the list above. Songs have to be created before they can be added to a release."}

@@ -55,10 +55,14 @@
 		<ArtworkImage frontSrc={coverImage} {name} />
 	</section>
 
-	<!-- <section>
-		<ReleaseListeningLinks {listeningLinks} />
-		<Button link={purchaseLink} label="Buy" />
-	</section> -->
+	<section>
+		{#if listeningLinks && listeningLinks.length > 0}
+			<ReleaseListeningLinks {listeningLinks} />
+		{/if}
+		{#if purchaseLink}
+			<Button link={purchaseLink} label="Buy" />
+		{/if}
+	</section>
 
 	{#if description}
 		<section>

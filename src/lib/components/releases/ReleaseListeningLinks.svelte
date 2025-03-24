@@ -6,25 +6,25 @@
 	let {
 		listeningLinks
 	}: {
-		listeningLinks: ListeningLink[];
+		listeningLinks: string[];
 	} = $props();
 </script>
 
 <ul class="listening-links">
 	{#each listeningLinks as link}
 		<li>
-			{#if link.name === 'Apple Music'}
-				<a href={link.link} target="_blank">
+			{#if link.includes('apple')}
+				<a href={link} target="_blank">
 					<Icon icon={icons.apple} />
 				</a>
 			{/if}
-			{#if link.name === 'Bandcamp'}
-				<a href={link.link} target="_blank">
+			{#if link.includes('bandcamp')}
+				<a href={link} target="_blank">
 					<Icon icon={icons.bandcamp} />
 				</a>
 			{/if}
-			{#if link.name === 'Spotify'}
-				<a href={link.link} target="_blank">
+			{#if link.includes('spotify')}
+				<a href={link} target="_blank">
 					<Icon icon={icons.spotify} />
 				</a>
 			{/if}
